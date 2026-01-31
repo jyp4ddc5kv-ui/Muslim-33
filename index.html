@@ -10,25 +10,19 @@
     <meta name="keywords" content="القرآن الكريم, مواقيت الصلاة العراق, تسبيح إلكتروني, أدعية اسلامية, رمضان 2025">
     <meta name="author" content="علي علاء">
     <meta name="robots" content="index, follow">
+    <meta name="copyright" content="© 2024 علي علاء - جميع الحقوق محفوظة">
     
     <!-- ✅ كود تحقق Google -->
     <meta name="google-site-verification" content="vNz0ogJsK7OGUbhF73uNdFMaHHT_gtW9EBVL-jMlM50" />
     
-    <!-- 🌍 Open Graph للشبكات الاجتماعية -->
+    <!-- 🌍 Open Graph -->
     <meta property="og:title" content="القرآن الشامل - موقع إسلامي متكامل">
     <meta property="og:description" content="موقع القرآن الشامل: قرآن كريم، مواقيت الصلاة، تسبيح، أدعية، رمضان، صدقة جارية">
     <meta property="og:image" content="https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=2070&auto=format&fit=crop">
     <meta property="og:url" content="https://jyp4ddc5kv-ui.github.io/Sksmsmms/">
     <meta property="og:type" content="website">
-    <meta property="og:locale" content="ar_SA">
     
-    <!-- 🐦 Twitter Cards -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="القرآن الشامل - موقع إسلامي متكامل">
-    <meta name="twitter:description" content="موقع القرآن الشامل: قرآن كريم، مواقيت الصلاة، تسبيح، أدعية، رمضان، صدقة جارية">
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=2070&auto=format&fit=crop">
-    
-    <!-- 📱 تحسين للأجهزة المحمولة -->
+    <!-- 📱 تحسين للأجهزة -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#1a237e">
@@ -36,16 +30,17 @@
     <!-- 📚 الروابط الأساسية -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🕌</text></svg>">
     
     <!-- 🗺️ Sitemap -->
-    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
     
     <style>
-        /* جميع أنماط CSS السابقة تبقى كما هي */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         :root {
@@ -57,12 +52,11 @@
             --charity: #ff6b6b;
             --shia: #00b894;
             --prayer: #3498db;
-            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition: all 0.3s ease;
         }
 
         html {
             scroll-behavior: smooth;
-            -webkit-tap-highlight-color: transparent;
         }
 
         body {
@@ -71,221 +65,725 @@
                         url('https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=2070&auto=format&fit=crop') 
                         no-repeat center center fixed;
             background-size: cover;
-            background-attachment: fixed;
-            background-blend-mode: overlay;
             color: white;
             min-height: 100vh;
             direction: rtl;
-            position: relative;
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        /* إصلاح مشكلة الخلفية المتغيرة */
-        body::before {
-            content: '';
-            position: fixed;
+        /* الهيدر */
+        header {
+            text-align: center;
+            padding: 20px 15px;
+            background: rgba(0, 0, 0, 0.85);
+            border-bottom: 3px solid var(--gold);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            color: var(--gold);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .logo-text {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--gold);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* التنقل */
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 15px;
+            background: rgba(0, 10, 32, 0.9);
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(rgba(26, 35, 126, 0.95), rgba(74, 20, 140, 0.95));
-            z-index: -2;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        body::after {
+        .nav-btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+
+        .nav-btn:hover {
+            background: rgba(29, 233, 182, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .nav-btn.active {
+            background: linear-gradient(135deg, var(--accent), #1e90ff);
+            box-shadow: 0 0 20px rgba(30, 144, 255, 0.5);
+        }
+
+        .charity-btn {
+            background: rgba(255, 107, 107, 0.3) !important;
+        }
+
+        .charity-btn:hover {
+            background: rgba(255, 107, 107, 0.5) !important;
+        }
+
+        /* المحتوى */
+        .content-section {
+            display: none;
+            margin: 20px auto;
+            max-width: 1200px;
+            padding: 20px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 25px 0;
+            color: var(--gold);
+            font-size: 2rem;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2::after {
             content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=2070&auto=format&fit=crop') 
-                        no-repeat center center;
-            background-size: cover;
-            z-index: -3;
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
         }
 
-        /* ... باقي أنماط CSS تبقى كما هي ... */
-        
+        /* قسم السور */
+        .surah-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .surah-box {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        .surah-box:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .surah-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .play-btn {
+            background: linear-gradient(135deg, var(--accent), #1e90ff);
+            color: white;
+        }
+
+        .play-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(29, 233, 182, 0.3);
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, var(--green), #27ae60);
+            color: white;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+        }
+
+        /* قسم الصلاة */
+        .prayer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .prayer-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
+        }
+
+        .prayer-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--shia);
+        }
+
+        .prayer-time {
+            font-size: 2.2rem;
+            font-weight: 700;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+        }
+
+        /* قسم رمضان */
+        .ramadan-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 30px auto;
+            max-width: 800px;
+        }
+
+        .time-box {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid rgba(249, 202, 36, 0.3);
+            transition: var(--transition);
+        }
+
+        .time-box:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+        }
+
+        .time-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--gold);
+            font-family: 'Courier New', monospace;
+        }
+
+        /* قسم التسبيح */
+        .tasbeeh-box {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px 30px;
+            margin: 30px auto;
+            max-width: 600px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        #counter {
+            font-size: 5rem;
+            font-weight: 700;
+            margin: 20px 0;
+            color: var(--gold);
+            font-family: 'Courier New', monospace;
+        }
+
+        .tasbeeh-controls {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tasbeeh-controls button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            min-width: 200px;
+            transition: var(--transition);
+        }
+
+        /* قسم الأدعية */
+        .dua-box {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        /* قسم الصدقة */
+        .charity-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px auto;
+            max-width: 800px;
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .deceased-box, .patient-box {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .deceased-box {
+            border-left: 5px solid var(--charity);
+        }
+
+        .patient-box {
+            border-left: 5px solid var(--prayer);
+        }
+
+        /* الفوتر */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #ddd;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        footer strong {
+            color: var(--gold);
+        }
+
+        /* الإشعارات */
+        .notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--accent), #1e90ff);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: 600;
+            z-index: 10000;
+            animation: slideIn 0.5s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* 📱 استجابة للجوال */
+        @media (max-width: 768px) {
+            .logo-text { font-size: 1.8rem; }
+            h2 { font-size: 1.6rem; }
+            nav { padding: 10px; gap: 5px; }
+            .nav-btn { 
+                padding: 10px 15px; 
+                font-size: 0.9rem;
+                flex: 1;
+                min-width: 120px;
+            }
+            .surah-container { grid-template-columns: 1fr; }
+            .prayer-grid { grid-template-columns: repeat(2, 1fr); }
+            .ramadan-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .time-box { padding: 15px; }
+            .time-number { font-size: 2rem; }
+            .tasbeeh-controls { flex-direction: column; }
+            .tasbeeh-controls button { width: 100%; min-width: auto; }
+            #counter { font-size: 4rem; }
+        }
+
+        @media (max-width: 480px) {
+            .prayer-grid { grid-template-columns: 1fr; }
+            .ramadan-grid { grid-template-columns: 1fr; }
+            .nav-btn span { display: none; }
+            .nav-btn { justify-content: center; }
+            .surah-box { flex-direction: column; gap: 15px; }
+            .surah-buttons { width: 100%; justify-content: center; }
+        }
+
+        /* 🍎 تحسين للآيباد */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .surah-container { grid-template-columns: repeat(2, 1fr); }
+            .prayer-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        /* حماية من النسخ */
+        .no-copy {
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
     </style>
 </head>
 <body>
-    <!-- ... باقي الهيكل HTML يبقى كما هو ... -->
+    <!-- الهيدر -->
+    <header>
+        <div class="logo">
+            <i class="fas fa-star-and-crescent logo-icon"></i>
+            <h1 class="logo-text">القرآن الشامل</h1>
+        </div>
+        <p style="color: var(--charity); font-weight: bold; font-size: 1.1rem; margin-top: 10px;">
+            🔹 صدقة جارية للمرحومة: <strong>كريمة</strong> رحمها الله
+        </p>
+    </header>
+
+    <!-- التنقل -->
+    <nav>
+        <button class="nav-btn active" data-target="surah-section">
+            <i class="fas fa-quran"></i> <span>السور</span>
+        </button>
+        <button class="nav-btn" data-target="prayer-section">
+            <i class="fas fa-mosque"></i> <span>الصلاة</span>
+        </button>
+        <button class="nav-btn" data-target="ramadan-section">
+            <i class="fas fa-moon"></i> <span>رمضان</span>
+        </button>
+        <button class="nav-btn" data-target="tasbeeh-section">
+            <i class="fas fa-pray"></i> <span>التسبيح</span>
+        </button>
+        <button class="nav-btn" data-target="duas-section">
+            <i class="fas fa-hands-praying"></i> <span>الأدعية</span>
+        </button>
+        <button class="nav-btn charity-btn" data-target="charity-section">
+            <i class="fas fa-hands-holding-heart"></i> <span>الصدقة</span>
+        </button>
+    </nav>
+
+    <!-- المحتوى الرئيسي -->
+    <main>
+        <!-- قسم السور -->
+        <section id="surah-section" class="content-section active">
+            <h2><i class="fas fa-quran"></i> السور القرآنية</h2>
+            <p style="text-align: center; color: #ddd; margin-bottom: 25px; font-size: 1.1rem;">
+                استمع أو حمل السور القرآنية بصوت القارئ عبد الباسط عبد الصمد
+            </p>
+            <div class="surah-container" id="surahList">
+                <!-- السور تضاف بالجافاسكريبت -->
+            </div>
+        </section>
+
+        <!-- قسم الصلاة -->
+        <section id="prayer-section" class="content-section">
+            <h2><i class="fas fa-mosque"></i> مواقيت الصلاة - البصرة</h2>
+            
+            <div style="background: rgba(0, 184, 148, 0.15); border: 1px solid var(--shia); border-radius: 10px; padding: 15px; margin: 20px auto; text-align: center; max-width: 600px;">
+                <i class="fas fa-map-marker-alt" style="color: var(--shia);"></i>
+                <span style="color: var(--shia); font-weight: bold;">حسب المذهب الجعفري - مدينة البصرة</span>
+            </div>
+            
+            <div class="prayer-grid">
+                <div class="prayer-card">
+                    <h3>الفجر</h3>
+                    <div class="prayer-time">04:45 ص</div>
+                    <div style="margin-top: 10px; color: var(--shia); font-size: 0.9rem;">
+                        <i class="fas fa-clock"></i> وقت الشهادة الثالثة
+                    </div>
+                </div>
+                <div class="prayer-card">
+                    <h3>الشروق</h3>
+                    <div class="prayer-time">06:05 ص</div>
+                </div>
+                <div class="prayer-card">
+                    <h3>الظهر</h3>
+                    <div class="prayer-time">12:15 م</div>
+                    <div style="margin-top: 10px; color: var(--shia); font-size: 0.9rem;">
+                        <i class="fas fa-sun"></i> وقت الزوال
+                    </div>
+                </div>
+                <div class="prayer-card">
+                    <h3>العصر</h3>
+                    <div class="prayer-time">03:45 م</div>
+                    <div style="margin-top: 10px; color: var(--shia); font-size: 0.9rem;">
+                        <i class="fas fa-clock"></i> حسب المذهب الجعفري
+                    </div>
+                </div>
+                <div class="prayer-card">
+                    <h3>المغرب</h3>
+                    <div class="prayer-time">06:20 م</div>
+                    <div style="margin-top: 10px; color: var(--shia); font-size: 0.9rem;">
+                        <i class="fas fa-moon"></i> غروب الشمس
+                    </div>
+                </div>
+                <div class="prayer-card">
+                    <h3>العشاء</h3>
+                    <div class="prayer-time">07:55 م</div>
+                    <div style="margin-top: 10px; color: var(--shia); font-size: 0.9rem;">
+                        <i class="fas fa-star"></i> وقت الفضيلة
+                    </div>
+                </div>
+            </div>
+            
+            <!-- الصلاة الحالية -->
+            <div style="background: rgba(0, 184, 148, 0.1); border-radius: 12px; padding: 20px; margin: 30px auto; text-align: center; max-width: 600px; border: 1px solid var(--shia);">
+                <h3 style="color: var(--gold); margin-bottom: 15px;">
+                    <i class="fas fa-bell"></i> الصلاة القادمة
+                </h3>
+                <div id="next-prayer" style="font-size: 1.8rem; color: var(--shia); font-weight: bold; font-family: 'Courier New', monospace;">
+                    المغرب
+                </div>
+                <div id="time-remaining" style="color: #ddd; margin-top: 10px; font-size: 1.1rem;">
+                    الوقت المتبقي: <span style="color: var(--gold); font-weight: bold;">02:15:30</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم رمضان -->
+        <section id="ramadan-section" class="content-section">
+            <h2><i class="fas fa-moon"></i> العد التنازلي لرمضان 1446هـ</h2>
+            <div style="text-align: center; padding: 20px;">
+                <p style="font-size: 1.2rem; margin-bottom: 30px; color: #ddd;">
+                    شهر الرحمة والمغفرة والعتق من النار، تهيأ لاستقباله بالتقوى والطاعات
+                </p>
+                <div class="ramadan-grid">
+                    <div class="time-box">
+                        <div class="time-number" id="ramadanDays">00</div>
+                        <div style="margin-top: 10px; color: #ddd;">يوم</div>
+                    </div>
+                    <div class="time-box">
+                        <div class="time-number" id="ramadanHours">00</div>
+                        <div style="margin-top: 10px; color: #ddd;">ساعة</div>
+                    </div>
+                    <div class="time-box">
+                        <div class="time-number" id="ramadanMinutes">00</div>
+                        <div style="margin-top: 10px; color: #ddd;">دقيقة</div>
+                    </div>
+                    <div class="time-box">
+                        <div class="time-number" id="ramadanSeconds">00</div>
+                        <div style="margin-top: 10px; color: #ddd;">ثانية</div>
+                    </div>
+                </div>
+                <p style="margin-top: 40px; font-size: 1.3rem; color: var(--gold); font-weight: 600;">
+                    اللهم بلغنا رمضان وأعنا على صيامه وقيامه
+                </p>
+            </div>
+        </section>
+
+        <!-- قسم التسبيح -->
+        <section id="tasbeeh-section" class="content-section">
+            <h2><i class="fas fa-pray"></i> التسبيح الإلكتروني</h2>
+            <div class="tasbeeh-box">
+                <p style="font-size: 1.3rem; margin-bottom: 20px; color: #ddd;">
+                    سبحان الله، الحمد لله، الله أكبر، لا إله إلا الله
+                </p>
+                <div id="counter">0</div>
+                <div id="dhikrText" style="font-size: 1.5rem; margin: 20px 0; color: var(--gold); font-weight: 600;">
+                    سبحان الله
+                </div>
+                <div class="tasbeeh-controls">
+                    <button onclick="incrementTasbeeh()" style="background: linear-gradient(135deg, var(--accent), #1e90ff); color: white;">
+                        <i class="fas fa-plus-circle"></i> اضغط للتسبيح
+                    </button>
+                    <button onclick="resetCounter()" style="background: linear-gradient(135deg, #ff9f43, #ff6b6b); color: white;">
+                        <i class="fas fa-redo"></i> إعادة ضبط
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم الأدعية -->
+        <section id="duas-section" class="content-section">
+            <h2><i class="fas fa-hands-praying"></i> الأدعية المأثورة</h2>
+            <div id="duasContainer">
+                <!-- الأدعية تضاف بالجافاسكريبت -->
+            </div>
+        </section>
+
+        <!-- قسم الصدقة الجارية -->
+        <section id="charity-section" class="content-section">
+            <h2><i class="fas fa-hands-holding-heart"></i> الصدقة الجارية</h2>
+            <div class="charity-section">
+                <h3 style="color: var(--charity); font-size: 1.8rem; margin-bottom: 30px; text-align: center;">
+                    📿 صدقة جارية عن:
+                </h3>
+                
+                <!-- المرحومة كريمة -->
+                <div class="deceased-box">
+                    <div style="font-size: 2rem; color: var(--charity); margin-bottom: 15px; font-weight: bold;">
+                        <i class="fas fa-pray"></i> المرحومة: كريمة
+                    </div>
+                    <div style="font-size: 1.2rem; color: white; line-height: 1.7;">
+                        رحمها الله تعالى وغفر لها ووسع مدخلها وأكرم نزلها<br>
+                        وطيب ثراها وأبدلها داراً خيراً من دارها
+                    </div>
+                </div>
+                
+                <!-- المريضة حوراء -->
+                <div class="patient-box">
+                    <div style="font-size: 2rem; margin-bottom: 15px; font-weight: bold;">
+                        <i class="fas fa-heartbeat" style="color: var(--prayer); animation: heartbeat 1.5s infinite;"></i>
+                        <span style="color: var(--prayer);">المريضة: حوراء</span>
+                    </div>
+                    <div style="font-size: 1.2rem; color: white; line-height: 1.7;">
+                        اللهم اشفها شفاءً لا يغادر سقماً<br>
+                        وعافها وعافي المسلمين، وارزقها الصحة والعافية والعمر المديد
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <button onclick="prayForPatient()" style="background: linear-gradient(135deg, var(--prayer), #2980b9); color: white; border: none; padding: 12px 25px; border-radius: 8px; font-weight: bold; cursor: pointer; display: inline-flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-hands-praying"></i> ادعُ لها بالشفاء
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- دعاء عام -->
+                <div style="background: rgba(249, 202, 36, 0.1); border-radius: 15px; padding: 25px; margin: 30px 0; text-align: center; border: 1px solid rgba(249, 202, 36, 0.3);">
+                    <div style="font-size: 1.3rem; color: var(--gold); line-height: 1.8;">
+                        🤲 اللهم اغفر لجميع المسلمين والمسلمات<br>
+                        اللهم ارحم موتانا وموتى المسلمين<br>
+                        اللهم أجعل هذا الموقع صدقة جارية عنهم
+                    </div>
+                </div>
+                
+                <!-- آية -->
+                <div style="margin-top: 30px; text-align: center;">
+                    <p style="color: #ddd; font-size: 1.1rem; margin-bottom: 15px;">
+                        كل من يستخدم هذا الموقع للقرآن أو الذكر أو الدعاء، يشارك في الأجر إن شاء الله
+                    </p>
+                    <p style="color: var(--gold); font-size: 1.3rem; font-weight: 600;">
+                        ﴿ إِنَّا نَحْنُ نُحْيِي الْمَوْتَى وَنَكْتُبُ مَا قَدَّمُوا وَآثَارَهُمْ ﴾
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- الفوتر -->
     <footer>
-        <p>© 2024 القرآن الشامل — صدقة جارية عن <strong>المرحومة كريمة</strong> وشفاء <strong>المريضة حوراء</strong></p>
-        <p style="margin-top: 15px; font-size: 0.9rem;">
+        <p style="font-size: 1.1rem; margin-bottom: 15px;">
+            © 2024 القرآن الشامل — صدقة جارية عن <strong>المرحومة كريمة</strong> وشفاء <strong>المريضة حوراء</strong>
+        </p>
+        <p style="margin-bottom: 20px; font-size: 1rem;">
             تطوير: <strong>علي علاء</strong> | اللهم اغفر لجميع المسلمين والمسلمات
         </p>
-        <div style="margin-top: 20px; font-size: 0.8rem; color: #aaa;">
+        <div style="font-size: 0.9rem; color: #aaa; line-height: 1.6;">
             <p>موقع إسلامي متكامل | قرآن | صلاة | تسبيح | أدعية | رمضان | صدقة جارية</p>
             <p>مواقيت الصلاة حسب المذهب الجعفري - البصرة</p>
         </div>
         
-        <!-- ✅ بيانات Sitemap وSEO مخفية - تم استعادتها -->
+        <!-- بيانات SEO مخفية -->
         <div style="display: none;">
-            <!-- 🌍 JSON-LD Structured Data -->
+            <!-- JSON-LD -->
             <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
                 "@type": "WebSite",
                 "name": "القرآن الشامل",
-                "description": "موقع إسلامي متكامل للقرآن الكريم، مواقيت الصلاة، التسبيح، الأدعية",
+                "description": "موقع إسلامي متكامل للقرآن الكريم، مواقيت الصلاة، التسبيح، الأدعية الإسلامية",
                 "url": "https://jyp4ddc5kv-ui.github.io/Sksmsmms/",
                 "author": {
                     "@type": "Person",
                     "name": "علي علاء"
                 },
-                "potentialAction": {
-                    "@type": "SearchAction",
-                    "target": "https://jyp4ddc5kv-ui.github.io/Sksmsmms/#{search_term_string}",
-                    "query-input": "required name=search_term_string"
-                }
+                "keywords": "القرآن الكريم, مواقيت الصلاة العراق, تسبيح إلكتروني, أدعية اسلامية, رمضان 2025"
             }
             </script>
             
-            <!-- 🕌 نوع إضافي للموقع الإسلامي -->
-            <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "ReligiousOrganization",
-                "name": "القرآن الشامل",
-                "description": "موقع إسلامي للقرآن الكريم، مواقيت الصلاة، التسبيح، الأدعية الإسلامية",
-                "url": "https://jyp4ddc5kv-ui.github.io/Sksmsmms/",
-                "address": {
-                    "@type": "PostalAddress",
-                    "addressCountry": "IQ",
-                    "addressRegion": "البصرة"
-                },
-                "knowsLanguage": ["ar"],
-                "keywords": "القرآن الكريم, مواقيت الصلاة, تسبيح إلكتروني, أدعية اسلامية, رمضان"
-            }
-            </script>
+            <!-- Sitemap محاكاة -->
+            <link rel="sitemap" type="application/xml" href="https://jyp4ddc5kv-ui.github.io/Sksmsmms/sitemap.xml" />
             
-            <!-- 📖 بيانات للسور القرآنية -->
-            <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "Book",
-                "name": "القرآن الكريم",
-                "author": {
-                    "@type": "Person",
-                    "name": "الله تعالى"
-                },
-                "bookFormat": "https://schema.org/AudiobookFormat",
-                "inLanguage": "ar",
-                "isbn": "N/A",
-                "numberOfPages": 604,
-                "publisher": "القرآن الشامل",
-                "sameAs": "https://quran.com/"
-            }
-            </script>
-            
-            <!-- 🗺️ محتوى Sitemap مخفي -->
-            <textarea id="virtual-sitemap" style="display:none;">
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-    
-    <!-- الصفحة الرئيسية -->
-    <url>
-        <loc>https://jyp4ddc5kv-ui.github.io/Sksmsmms/</loc>
-        <lastmod>2024-02-19</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>1.0</priority>
-    </url>
-    
-    <!-- قسم السور القرآنية -->
-    <url>
-        <loc>https://jyp4ddc5kv-ui.github.io/Sksmsmms/#surah-section</loc>
-        <lastmod>2024-02-19</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    
-    <!-- قسم مواقيت الصلاة -->
-    <url>
-        <loc>https://jyp4ddc5kv-ui.github.io/Sksmsmms/#prayer-section</loc>
-        <lastmod>2024-02-19</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.9</priority>
-    </url>
-    
-    <!-- قسم رمضان -->
-    <url>
-        <loc>https://jyp4ddc5kv-ui.github.io/Sksmsmms/#ramadan-section</loc>
-        <lastmod>2024-02-19</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <!-- قسم التسبيح -->
-    <url>
-        <loc>https://jyp4ddc5kv-ui.github.io/Sksmsmms/#tasbeeh-section</loc>
-        <lastmod>2024-02-19</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    
-    <!-- قسم الأدعية -->
-    <url>
-        <loc>https://jyp4ddc5kv-ui.github.io/Sksmsmms/#duas-section</loc>
-        <lastmod>2024-02-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    
-    <!-- قسم الصدقة الجارية -->
-    <url>
-        <loc>https://jyp4ddc5kv-ui.github.io/Sksmsmms/#charity-section</loc>
-        <lastmod>2024-02-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-    
-</urlset>
-            </textarea>
-            
-            <!-- 📄 روابط مهمة لمحركات البحث -->
-            <a href="https://jyp4ddc5kv-ui.github.io/Sksmsmms/robots.txt" style="display:none;">robots.txt</a>
-            <a href="https://jyp4ddc5kv-ui.github.io/Sksmsmms/sitemap.xml" style="display:none;">sitemap.xml</a>
-            <a href="https://jyp4ddc5kv-ui.github.io/Sksmsmms/feed.xml" style="display:none;">feed.xml</a>
-            
-            <!-- 📊 إحصائيات Google Analytics (محاكاة) -->
-            <script style="display:none;">
-            // Google Analytics Simulation
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-XXXXXXXXXX');
-            </script>
-            
+            <!-- روابط محمية -->
+            <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" style="display:none;">CC License</a>
+            <a rel="author" href="https://github.com/jyp4ddc5kv-ui" style="display:none;">المطور</a>
         </div>
     </footer>
 
     <script>
-        // ====== نظام التحكم بالصوت ======
+        // ====== المتغيرات العامة ======
         let currentAudio = null;
-        
-        // ====== إشعارات ======
-        function showNotification(message, icon = 'fas fa-info-circle') {
-            const notification = document.createElement('div');
-            notification.className = 'notification';
-            notification.innerHTML = `<i class="${icon}"></i> ${message}`;
-            document.body.appendChild(notification);
+        let tasbeehCount = localStorage.getItem('tasbeehCount') ? parseInt(localStorage.getItem('tasbeehCount')) : 0;
+        let currentDhikrIndex = 0;
+        let visitCount = localStorage.getItem('visitCount') ? parseInt(localStorage.getItem('visitCount')) : 0;
+
+        // ====== تهيئة الموقع ======
+        document.addEventListener('DOMContentLoaded', function() {
+            // زيادة عداد الزيارات
+            visitCount++;
+            localStorage.setItem('visitCount', visitCount);
+            localStorage.setItem('lastVisit', new Date().toISOString());
             
+            // تحميل المحتوى
+            loadSurahs();
+            loadDuas();
+            startRamadanCounter();
+            setupNavigation();
+            
+            // تهيئة عداد التسبيح
+            const savedCount = localStorage.getItem('tasbeehCount');
+            if (savedCount) {
+                document.getElementById('counter').textContent = savedCount;
+                tasbeehCount = parseInt(savedCount);
+            }
+            
+            // إشعار ترحيبي
             setTimeout(() => {
-                notification.style.animation = 'fadeOut 0.5s forwards';
-                setTimeout(() => notification.remove(), 500);
-            }, 2500);
-        }
+                showNotification('مرحباً بك في القرآن الشامل، أسأل الله أن ينفعكم به', 'fas fa-heart');
+            }, 1000);
+        });
 
         // ====== نظام التنقل ======
-        document.addEventListener('DOMContentLoaded', function() {
-            // تفعيل أزرار التنقل
+        function setupNavigation() {
             const navButtons = document.querySelectorAll('.nav-btn');
             const sections = document.querySelectorAll('.content-section');
             
@@ -305,47 +803,44 @@
                     navButtons.forEach(btn => btn.classList.remove('active'));
                     this.classList.add('active');
                     
-                    // إيقاف أي صوت شغال عند تغيير القسم
+                    // إيقاف أي صوت شغال
                     if (currentAudio) {
                         currentAudio.pause();
                         currentAudio.currentTime = 0;
+                        currentAudio = null;
                     }
                     
-                    // تحديث تاريخ Sitemap
-                    updateSitemapDate();
+                    // تسجيل الإحصائيات
+                    trackSectionView(targetId);
                 });
             });
-            
-            // تحميل المحتوى
-            loadSurahs();
-            loadDuas();
-            startCounters();
-            initializeSitemap();
-        });
+        }
 
         // ====== بيانات السور ======
         const surahs = [
-            { name: "الفاتحة", audio: "https://download.quranicaudio.com/quran/abdul_basit_murattal/001.mp3" },
-            { name: "البقرة", audio: "https://download.quranicaudio.com/quran/abdul_basit_murattal/002.mp3" },
-            { name: "آل عمران", audio: "https://download.quranicaudio.com/quran/abdul_basit_murattal/003.mp3" },
-            { name: "النساء", audio: "https://download.quranicaudio.com/quran/abdul_basit_murattal/004.mp3" },
-            { name: "المائدة", audio: "https://download.quranicaudio.com/quran/abdul_basit_murattal/005.mp3" },
-            { name: "الأنعام", audio: "https://download.quranicaudio.com/quran/abdul_basit_murattal/006.mp3" },
-            { name: "الأعراف", audio: "https://download.quranicaudio.com/quran/abdul_basit_murattal/007.mp3" },
-            { name: "الأنفال", audio: "https://download.quranicaudio.com/quran/abdul_basit_murattal/008.mp3" },
-            { name: "التوبة", audio: "https://download.quranicaudio.com/quran/abdul_basit_murattal/009.mp3" },
-            { name: "يونس", audio: "https://download.quranicaudio.com/quran/abdul_basit_murattal/010.mp3" }
+            { name: "الفاتحة", audio: "https://everyayah.com/data/Abdul_Basit_Murattal_64kbps/001001.mp3" },
+            { name: "البقرة", audio: "https://everyayah.com/data/Abdul_Basit_Murattal_64kbps/002001.mp3" },
+            { name: "آل عمران", audio: "https://everyayah.com/data/Abdul_Basit_Murattal_64kbps/003001.mp3" },
+            { name: "النساء", audio: "https://everyayah.com/data/Abdul_Basit_Murattal_64kbps/004001.mp3" },
+            { name: "المائدة", audio: "https://everyayah.com/data/Abdul_Basit_Murattal_64kbps/005001.mp3" },
+            { name: "الأنعام", audio: "https://everyayah.com/data/Abdul_Basit_Murattal_64kbps/006001.mp3" },
+            { name: "الأعراف", audio: "https://everyayah.com/data/Abdul_Basit_Murattal_64kbps/007001.mp3" },
+            { name: "الأنفال", audio: "https://everyayah.com/data/Abdul_Basit_Murattal_64kbps/008001.mp3" },
+            { name: "التوبة", audio: "https://everyayah.com/data/Abdul_Basit_Murattal_64kbps/009001.mp3" },
+            { name: "يونس", audio: "https://everyayah.com/data/Abdul_Basit_Murattal_64kbps/010001.mp3" }
         ];
 
         function loadSurahs() {
             const container = document.getElementById('surahList');
             if (!container) return;
             
+            container.innerHTML = '';
+            
             surahs.forEach(surah => {
                 const surahElement = document.createElement('div');
                 surahElement.className = 'surah-box';
                 surahElement.innerHTML = `
-                    <p>${surah.name}</p>
+                    <p style="font-size: 1.2rem; font-weight: bold;">${surah.name}</p>
                     <div class="surah-buttons">
                         <button class="action-btn play-btn" onclick="playAudio('${surah.audio}', '${surah.name}')">
                             <i class="fas fa-play"></i> تشغيل
@@ -359,40 +854,38 @@
             });
         }
 
-        // ====== تشغيل وتنزيل السور ======
+        // ====== تشغيل السور ======
         function playAudio(url, name) {
-            // إيقاف الصوت الحالي إذا كان شغالاً
             if (currentAudio) {
                 currentAudio.pause();
                 currentAudio.currentTime = 0;
             }
             
-            // تشغيل الصوت الجديد
             currentAudio = new Audio(url);
-            currentAudio.play();
-            
-            // إشعار
-            showNotification(`جاري تشغيل سورة ${name}`, 'fas fa-play-circle');
-            
-            // تحديث إحصائيات
-            updateAudioStats(name);
+            currentAudio.play()
+                .then(() => {
+                    showNotification(`جاري تشغيل سورة ${name}`, 'fas fa-play-circle');
+                    trackAudioPlay(name);
+                })
+                .catch(error => {
+                    console.error('Error playing audio:', error);
+                    showNotification('حدث خطأ في تشغيل السورة', 'fas fa-exclamation-triangle');
+                });
         }
 
         function downloadSurah(url, name) {
+            showNotification(`جاري تحميل سورة ${name}`, 'fas fa-download');
+            
             const link = document.createElement('a');
             link.href = url;
-            link.download = `${name}.mp3`;
+            link.download = `سورة_${name}.mp3`;
+            link.style.display = 'none';
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
-            
-            // إشعار
-            showNotification(`جاري تنزيل سورة ${name}`, 'fas fa-download');
         }
 
         // ====== التسبيح ======
-        let tasbeehCount = localStorage.getItem('tasbeehCount') ? parseInt(localStorage.getItem('tasbeehCount')) : 0;
-        let currentDhikrIndex = 0;
         const dhikrPhrases = [
             "سبحان الله",
             "الحمد لله", 
@@ -408,6 +901,10 @@
             const counterElement = document.getElementById('counter');
             if (counterElement) {
                 counterElement.textContent = tasbeehCount;
+                counterElement.style.transform = 'scale(1.1)';
+                setTimeout(() => {
+                    counterElement.style.transform = 'scale(1)';
+                }, 150);
             }
             
             // تغيير الذكر كل 10 مرات
@@ -416,19 +913,43 @@
                 const dhikrText = document.getElementById('dhikrText');
                 if (dhikrText) {
                     dhikrText.textContent = dhikrPhrases[currentDhikrIndex];
+                    dhikrText.style.color = '#ff9f43';
+                    setTimeout(() => {
+                        dhikrText.style.color = 'var(--gold)';
+                    }, 300);
+                }
+                
+                // هزاز للجوال
+                if (navigator.vibrate) {
+                    navigator.vibrate(50);
                 }
             }
+            
+            // إحصائيات
+            trackTasbeeh();
         }
 
         function resetCounter() {
             tasbeehCount = 0;
             localStorage.setItem('tasbeehCount', 0);
             currentDhikrIndex = 0;
+            
             const counterElement = document.getElementById('counter');
             const dhikrText = document.getElementById('dhikrText');
             
-            if (counterElement) counterElement.textContent = '0';
-            if (dhikrText) dhikrText.textContent = 'سبحان الله';
+            if (counterElement) {
+                counterElement.textContent = '0';
+                counterElement.style.transform = 'scale(1.3)';
+                counterElement.style.color = '#ff6b6b';
+                setTimeout(() => {
+                    counterElement.style.transform = 'scale(1)';
+                    counterElement.style.color = 'var(--gold)';
+                }, 300);
+            }
+            
+            if (dhikrText) {
+                dhikrText.textContent = 'سبحان الله';
+            }
             
             showNotification('تم إعادة ضبط العداد', 'fas fa-redo');
         }
@@ -446,9 +967,9 @@
                 reference: "متفق عليه"
             },
             {
-                title: "دعاء السفر",
-                text: "سبحان الذي سخر لنا هذا وما كنا له مقرنين، وإنا إلى ربنا لمنقلبون. اللهم إنا نسألك في سفرنا هذا البر والتقوى، ومن العمل ما ترضى.",
-                reference: "رواه مسلم"
+                title: "دعاء الهم والحزن",
+                text: "اللهم إني عبدك وابن عبدك وابن أمتك، ناصيتي بيدك، ماضٍ في حكمك، عدل في قضاؤك، أسألك بكل اسم هو لك سميت به نفسك، أو أنزلته في كتابك، أو علمته أحداً من خلقك، أو استأثرت به في علم الغيب عندك، أن تجعل القرآن ربيع قلبي، ونور صدري، وجلاء حزني، وذهاب همي.",
+                reference: "رواه أحمد"
             }
         ];
 
@@ -456,25 +977,23 @@
             const container = document.getElementById('duasContainer');
             if (!container) return;
             
+            container.innerHTML = '';
+            
             duas.forEach(dua => {
                 const duaElement = document.createElement('div');
-                duaElement.className = 'surah-box';
-                duaElement.style.marginBottom = '20px';
+                duaElement.className = 'dua-box';
                 duaElement.innerHTML = `
-                    <div style="flex: 1;">
-                        <h3 style="color: #f9ca24; margin-bottom: 10px; font-size: 1.3rem;">${dua.title}</h3>
-                        <p style="color: #ddd; font-size: 1.1rem; line-height: 1.6;">${dua.text}</p>
-                        <p style="color: #aaa; font-size: 0.9rem; margin-top: 10px;">${dua.reference}</p>
-                    </div>
+                    <h3 style="color: var(--gold); margin-bottom: 15px; font-size: 1.3rem;">${dua.title}</h3>
+                    <p style="color: #ddd; font-size: 1.1rem; line-height: 1.8; margin-bottom: 10px;">${dua.text}</p>
+                    <p style="color: #aaa; font-size: 0.9rem;">${dua.reference}</p>
                 `;
                 container.appendChild(duaElement);
             });
         }
 
         // ====== رمضان ======
-        function startCounters() {
-            function updateRamadanCountdown() {
-                // ✅ تاريخ رمضان 2025 الصحيح
+        function startRamadanCounter() {
+            function updateCounter() {
                 const ramadanDate = new Date('2025-03-01T00:00:00');
                 const now = new Date();
                 const diff = ramadanDate.getTime() - now.getTime();
@@ -494,16 +1013,97 @@
                     if (hoursElement) hoursElement.textContent = hours.toString().padStart(2, '0');
                     if (minutesElement) minutesElement.textContent = minutes.toString().padStart(2, '0');
                     if (secondsElement) secondsElement.textContent = seconds.toString().padStart(2, '0');
+                    
+                    // تأثير رقمي
+                    const boxes = document.querySelectorAll('.time-number');
+                    boxes.forEach(box => {
+                        box.style.textShadow = `0 0 10px rgba(249, 202, 36, 0.5)`;
+                    });
                 }
             }
             
-            updateRamadanCountdown();
-            setInterval(updateRamadanCountdown, 1000);
+            updateCounter();
+            setInterval(updateCounter, 1000);
         }
 
-        // ====== 🗺️ Sitemap Functions ======
-        function initializeSitemap() {
-            // حفظ Sitemap في localStorage للرجوع إليه
+        // ====== الصدقة ======
+        function prayForPatient() {
+            showNotification('اللهم اشف حوراء وعافيها وعاف جميع المسلمين', 'fas fa-hands-praying');
+            
+            const patientBox = document.querySelector('.patient-box');
+            if (patientBox) {
+                patientBox.style.transform = 'scale(1.05)';
+                patientBox.style.boxShadow = '0 0 30px rgba(52, 152, 219, 0.5)';
+                setTimeout(() => {
+                    patientBox.style.transform = 'scale(1)';
+                    patientBox.style.boxShadow = 'none';
+                }, 500);
+            }
+        }
+
+        // ====== الإشعارات ======
+        function showNotification(message, icon = 'fas fa-info-circle') {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.innerHTML = `<i class="${icon}"></i> ${message}`;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            }, 3000);
+        }
+
+        // ====== إحصائيات ======
+        function trackSectionView(section) {
+            let stats = JSON.parse(localStorage.getItem('sectionStats') || '{}');
+            stats[section] = (stats[section] || 0) + 1;
+            stats.lastView = new Date().toISOString();
+            localStorage.setItem('sectionStats', JSON.stringify(stats));
+        }
+
+        function trackAudioPlay(surahName) {
+            let audioStats = JSON.parse(localStorage.getItem('audioStats') || '{}');
+            audioStats[surahName] = (audioStats[surahName] || 0) + 1;
+            audioStats.totalPlays = (audioStats.totalPlays || 0) + 1;
+            localStorage.setItem('audioStats', JSON.stringify(audioStats));
+        }
+
+        function trackTasbeeh() {
+            let tasbeehStats = JSON.parse(localStorage.getItem('tasbeehStats') || '{}');
+            tasbeehStats.total = (tasbeehStats.total || 0) + 1;
+            tasbeehStats.lastUpdate = new Date().toISOString();
+            localStorage.setItem('tasbeehStats', JSON.stringify(tasbeehStats));
+        }
+
+        // ====== حماية الموقع ======
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            // منع F12 وCtrl+Shift+I
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I')) {
+                e.preventDefault();
+                showNotification('المفتاح محمي', 'fas fa-lock');
+            }
+        });
+
+        // ====== تأثير النبض للقلب ======
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes heartbeat {
+                0%, 100% { transform: scale(1); }
+                50% { transform: scale(1.1); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // ====== Sitemap ======
+        function updateSitemap() {
             const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
@@ -551,62 +1151,46 @@
 </urlset>`;
             
             localStorage.setItem('virtual_sitemap', sitemapContent);
-            
-            // تحديث التاريخ في الواجهة
-            updateSitemapDate();
         }
 
-        function updateSitemapDate() {
-            const today = new Date().toISOString().split('T')[0];
-            const sitemapTextarea = document.getElementById('virtual-sitemap');
-            if (sitemapTextarea) {
-                let content = sitemapTextarea.value;
-                content = content.replace(/<lastmod>[\d-]+<\/lastmod>/g, `<lastmod>${today}</lastmod>`);
-                sitemapTextarea.value = content;
-            }
-            
-            // تحديث في localStorage أيضًا
-            const storedSitemap = localStorage.getItem('virtual_sitemap');
-            if (storedSitemap) {
-                const updatedSitemap = storedSitemap.replace(/<lastmod>[\d-]+<\/lastmod>/g, `<lastmod>${today}</lastmod>`);
-                localStorage.setItem('virtual_sitemap', updatedSitemap);
-            }
+        // تحديث Sitemap عند التحميل
+        updateSitemap();
+        
+        // ====== دعم PWA ======
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js').catch(function(error) {
+                    console.log('Service Worker registration failed:', error);
+                });
+            });
         }
 
-        // ====== 📊 إحصائيات ======
-        function updateAudioStats(surahName) {
-            let audioStats = JSON.parse(localStorage.getItem('audioStats') || '{}');
-            audioStats[surahName] = (audioStats[surahName] || 0) + 1;
-            audioStats.totalPlays = (audioStats.totalPlays || 0) + 1;
-            audioStats.lastPlayed = new Date().toISOString();
-            localStorage.setItem('audioStats', JSON.stringify(audioStats));
+        // ====== تحسين للأجهزة المحمولة ======
+        function handleResize() {
+            const isMobile = window.innerWidth <= 768;
+            const navTexts = document.querySelectorAll('.nav-btn span');
             
-            console.log(`إحصائيات الصوت: ${JSON.stringify(audioStats, null, 2)}`);
+            navTexts.forEach(span => {
+                span.style.display = isMobile ? 'none' : 'inline';
+            });
         }
-
-        // ====== حماية بسيطة ======
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-        });
-
-        // ====== 🚀 تهيئة عند التحميل ======
-        window.addEventListener('load', function() {
-            // تهيئة العداد من localStorage
-            const savedCount = localStorage.getItem('tasbeehCount');
-            if (savedCount && document.getElementById('counter')) {
-                document.getElementById('counter').textContent = savedCount;
-                tasbeehCount = parseInt(savedCount);
+        
+        window.addEventListener('resize', handleResize);
+        handleResize(); // استدعاء أولي
+        
+        // ====== تحسين الأداء ======
+        let lastScrollTime = 0;
+        window.addEventListener('scroll', function() {
+            const currentTime = Date.now();
+            if (currentTime - lastScrollTime > 100) {
+                lastScrollTime = currentTime;
+                // إيقاف الصوت عند التمرير
+                if (currentAudio) {
+                    currentAudio.pause();
+                    currentAudio.currentTime = 0;
+                    currentAudio = null;
+                }
             }
-            
-            // عرض إشعار ترحيبي
-            setTimeout(() => {
-                showNotification('مرحباً بك في القرآن الشامل، أسأل الله أن ينفعكم به', 'fas fa-heart');
-            }, 1000);
-            
-            // تسجيل زيارة الصفحة
-            const visitCount = parseInt(localStorage.getItem('visitCount') || '0') + 1;
-            localStorage.setItem('visitCount', visitCount);
-            localStorage.setItem('lastVisit', new Date().toISOString());
         });
 
     </script>
