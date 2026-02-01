@@ -1,8 +1,50 @@
+# robots.txt for القرآن الشامل
 User-agent: *
 Allow: /
+Allow: /*.html
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.gif
+
+# Disallow admin or private areas
 Disallow: /admin/
 Disallow: /private/
+Disallow: /config/
+Disallow: /logs/
 
+# Sitemap location
 Sitemap: https://jyp4ddc5kv-ui.github.io/Sksmmsms/sitemap.xml
 
+# Crawl delay (be nice to the server)
 Crawl-delay: 2
+
+# Preferred host (if you have www version)
+Host: https://jyp4ddc5kv-ui.github.io
+
+# Additional instructions
+User-agent: Googlebot
+Allow: /
+Disallow: /search/
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 3
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 5
+
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /api/
+
+User-agent: Baiduspider
+Allow: /
+Disallow: /users/
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 4
