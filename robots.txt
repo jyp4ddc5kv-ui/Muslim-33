@@ -1,8 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /admin/
-Disallow: /private/
-Disallow: /cgi-bin/
 
-# Sitemap
-Sitemap: https://jyp4ddc5kv-ui.github.io/Sksmsmms/sitemap.xml
+Sitemap: https://jyp4ddc5kv-ui.github.io/Sksmsmms/sitemap.txt
