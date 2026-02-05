@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /cgi-bin/
+
+# Sitemaps
+Sitemap: https://jyp4ddc5kv-ui.github.io/Sksmsmms/sitemap.xml
+
+# Crawl-delay: 10
+# للتحكم بسرعة الزحف إذا كان الموقع كبير
+
+# Allow Googlebot
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 2
