@@ -1,0 +1,25 @@
+{
+  "name": "تطبيق القرآن الكريم - موقع إسلامي متكامل",
+  "short_name": "القرآن الكريم",
+  "description": "تطبيق إسلامي شامل للقرآن الكريم، مواقيت الصلاة، إمساكية رمضان، الأدعية، الأذكار، اتجاه القبلة",
+  "start_url": "/Sksmsmms/",
+  "display": "standalone",
+  "background_color": "#0a1931",
+  "theme_color": "#0a1931",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/4411/4411577.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/4411/4411577.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["education", "lifestyle", "productivity"],
+  "lang": "ar",
+  "dir": "rtl"
+}
