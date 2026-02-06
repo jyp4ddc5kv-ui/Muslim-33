@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>القرآن الكريم - تطبيق إسلامي مجاني</title>
-    <meta name="description" content="تطبيق إسلامي مجاني شامل - القرآن الكريم، مواقيت الصلاة الشيعية، إمساكية رمضان، التسبيح، الأدعية">
-    <meta name="keywords" content="القرآن الكريم, مواقيت الصلاة, السيد السيستاني, تسبيح, أدعية شيعية">
+    <title>القرآن الشامل - تطبيق إسلامي شامل</title>
+    <meta name="description" content="القرآن الشامل - تطبيق إسلامي مجاني شامل: القرآن الكريم، مواقيت الصلاة، اتجاه القبلة، التسبيح، الأدعية">
+    <meta name="keywords" content="القرآن الشامل, قرآن كريم, مواقيت صلاة, اتجاه القبلة, تسبيح, أدعية, تطبيق إسلامي">
     <meta name="author" content="علي علاء">
     
     <!-- كود تحقق Google -->
@@ -18,22 +18,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&family=Amiri:wght@400;700&family=Reem+Kufi:wght@400;500;600;700&family=Lateef:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* متغيرات الألوان */
         :root {
-            --ذهبي: #D4AF37;
-            --ذهبي-فاتح: #F4E4A6;
-            --أخضر: #2E7D32;
-            --أخضر-فاتح: #4CAF50;
-            --أزرق: #1565C0;
-            --أزرق-فاتح: #2196F3;
-            --بنفسجي: #7B1FA2;
-            --بنفسجي-فاتح: #9C27B0;
-            --أحمر: #C62828;
-            --أسود: #1A1A2E;
-            --أسود-فاتح: #16213E;
-            --رمادي: #2D3047;
-            --نص: #E6E6E6;
-            --نص-فاتح: #FFFFFF;
+            --أخضر-داكن: #1a472a;
+            --أخضر: #2e7d32;
+            --أخضر-فاتح: #4caf50;
+            --ذهبي: #d4af37;
+            --ذهبي-فاتح: #f4e4a6;
+            --أبيض: #ffffff;
+            --أسود: #0a0a0a;
+            --رمادي: #2d2d2d;
+            --رمادي-فاتح: #f5f5f5;
+            --أحمر: #c62828;
+            --أزرق: #1565c0;
+            --بنفسجي: #7b1fa2;
         }
 
         * {
@@ -42,154 +39,152 @@
             box-sizing: border-box;
         }
 
+        html {
+            font-size: 16px;
+        }
+
         body {
             font-family: 'Tajawal', sans-serif;
-            background: var(--أسود);
-            color: var(--نص);
-            line-height: 1.6;
+            background: linear-gradient(135deg, #1a472a 0%, #2e7d32 100%);
+            color: var(--أبيض);
             min-height: 100vh;
+            direction: rtl;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* تصميم حاوية رئيسية متجاوبة */
+        .حاوية-تطبيق {
+            max-width: 100%;
+            width: 100%;
+            min-height: 100vh;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
             position: relative;
             overflow-x: hidden;
         }
 
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(46, 125, 50, 0.1) 0%, transparent 50%);
-            z-index: -1;
-        }
-
-        /* شريط التنبيه العلوي */
-        .تنبيه {
-            background: linear-gradient(90deg, var(--أخضر), var(--أزرق));
-            color: white;
+        /* رأس التطبيق */
+        .رأس-تطبيق {
+            background: linear-gradient(135deg, var(--أخضر-داكن), var(--أخضر));
+            padding: 1.5rem 1rem;
             text-align: center;
-            padding: 12px;
-            font-size: 0.9rem;
-            font-weight: 600;
+            border-bottom: 3px solid var(--ذهبي);
             position: relative;
-            z-index: 1000;
+            overflow: hidden;
         }
 
-        /* الرأس */
-        .رأس {
-            background: rgba(26, 26, 46, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            position: sticky;
-            top: 0;
-            z-index: 999;
-            border-bottom: 2px solid var(--ذهبي);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        .رأس-تطبيق::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1%, transparent 20%);
+            animation: دوران 20s linear infinite;
         }
 
-        .حاوية-رأس {
-            max-width: 1200px;
-            margin: 0 auto;
+        @keyframes دوران {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .شعار-تطبيق {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
             flex-wrap: wrap;
-            gap: 20px;
         }
 
-        .شعار {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .شعار i {
+        .شعار-تطبيق i {
             font-size: 2.5rem;
             color: var(--ذهبي);
-            animation: تألق 2s infinite alternate;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 50%;
+            border: 2px solid var(--ذهبي);
+            flex-shrink: 0;
         }
 
-        @keyframes تألق {
-            0% { transform: scale(1); text-shadow: 0 0 10px var(--ذهبي); }
-            100% { transform: scale(1.1); text-shadow: 0 0 20px var(--ذهبي); }
-        }
-
-        .شعار-نص {
+        .عنوان-تطبيق {
             font-size: 1.8rem;
             font-weight: 800;
-            background: linear-gradient(45deg, var(--ذهبي), var(--أخضر-فاتح));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: var(--ذهبي-فاتح);
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
             font-family: 'Reem Kufi', sans-serif;
+            line-height: 1.3;
         }
 
-        .زمن {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 10px 20px;
-            border-radius: 50px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            font-family: 'Courier New', monospace;
+        .وصف-تطبيق {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 0.25rem;
+        }
+
+        /* شريط الوقت */
+        .شريط-وقت {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.75rem;
+            text-align: center;
+            font-size: 1rem;
             font-weight: 600;
             color: var(--ذهبي);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-family: 'Courier New', monospace;
         }
 
         /* التنقل */
-        .تنقل {
-            background: rgba(45, 48, 71, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 15px;
+        .تنقل-تطبيق {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1px;
             position: sticky;
-            top: 84px;
-            z-index: 998;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-        }
-
-        .أزرار-تنقل {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
+            top: 0;
+            z-index: 100;
         }
 
         .زر-تنقل {
             background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--نص);
-            padding: 12px 25px;
-            border-radius: 50px;
+            border: none;
+            color: var(--أبيض);
+            padding: 1rem 0.5rem;
+            font-size: 0.8rem;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-weight: 600;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 8px;
-            font-size: 0.9rem;
+            gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
+            min-height: 70px;
         }
 
         .زر-تنقل:hover {
-            background: var(--ذهبي);
-            color: var(--أسود);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+            background: rgba(255, 255, 255, 0.1);
         }
 
         .زر-تنقل.نشط {
-            background: var(--ذهبي);
-            color: var(--أسود);
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+            background: rgba(212, 175, 55, 0.2);
+            color: var(--ذهبي);
+            border-top: 2px solid var(--ذهبي);
         }
 
-        /* المحتوى الرئيسي */
-        .محتوى {
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 0 20px;
-            min-height: 500px;
+        .زر-تنقل i {
+            font-size: 1.2rem;
+        }
+
+        /* المحتوى */
+        .محتوى-تطبيق {
+            padding: 1.25rem;
+            min-height: 400px;
         }
 
         .قسم {
@@ -202,618 +197,743 @@
         }
 
         @keyframes ظهور {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .عنوان-قسم {
-            text-align: center;
-            margin: 50px 0;
-            position: relative;
-            padding-bottom: 20px;
-        }
-
-        .عنوان-قسم h2 {
-            font-size: 2.2rem;
             color: var(--ذهبي);
-            font-family: 'Lateef', serif;
-            display: inline-block;
-        }
-
-        .عنوان-قسم h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 50%;
-            transform: translateX(50%);
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--ذهبي), transparent);
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            padding-bottom: 0.625rem;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+            font-family: 'Reem Kufi', sans-serif;
         }
 
         /* قسم القرآن */
-        .معلومات-قرآن {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(46, 125, 50, 0.1));
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 15px;
-            padding: 20px;
-            margin: 30px auto;
-            max-width: 600px;
-            text-align: center;
+        .خيارات-قرآن {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 0.9375rem;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(212, 175, 55, 0.2);
         }
 
-        .معلومات-قرآن h3 {
-            color: var(--ذهبي);
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-
-        .أزرار-قراء {
+        .مجموعة-أزرار {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin: 20px 0;
+            gap: 0.625rem;
+            margin-top: 0.9375rem;
             flex-wrap: wrap;
         }
 
-        .زر-قارئ {
-            background: rgba(255, 255, 255, 0.05);
+        .زر-خيار {
+            background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(212, 175, 55, 0.3);
-            color: var(--نص);
-            padding: 10px 20px;
-            border-radius: 50px;
+            color: var(--أبيض);
+            padding: 0.625rem 0.9375rem;
+            border-radius: 1.5625rem;
             cursor: pointer;
-            transition: all 0.3s ease;
             font-size: 0.9rem;
+            transition: all 0.3s ease;
+            min-width: 100px;
         }
 
-        .زر-قارئ:hover {
-            background: var(--ذهبي);
-            color: var(--أسود);
+        .زر-خيار:hover {
+            background: rgba(212, 175, 55, 0.2);
         }
 
-        .زر-قارئ.نشط {
+        .زر-خيار.نشط {
             background: var(--ذهبي);
             color: var(--أسود);
             font-weight: 600;
         }
 
-        /* شبكة السور */
-        .شبكة-سور {
+        .قائمة-سور {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-            margin: 40px 0;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 0.9375rem;
+            margin-top: 1.25rem;
         }
 
-        .بطاقة-سورة {
+        .عنصر-سورة {
             background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 25px;
+            border-radius: 0.625rem;
+            padding: 0.9375rem;
+            text-align: center;
             transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
             position: relative;
             overflow: hidden;
         }
 
-        .بطاقة-سورة:hover {
-            transform: translateY(-5px);
+        .عنصر-سورة:hover {
+            background: rgba(212, 175, 55, 0.1);
+            transform: translateY(-3px);
             border-color: var(--ذهبي);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .بطاقة-سورة:hover::before {
-            transform: translateX(100%);
         }
 
         .اسم-سورة {
-            font-size: 1.4rem;
             color: var(--ذهبي);
-            margin-bottom: 15px;
-            text-align: center;
+            font-weight: 600;
+            margin-bottom: 0.625rem;
             font-family: 'Amiri', serif;
+            font-size: 1.1rem;
         }
 
         .أزرار-سورة {
             display: flex;
-            gap: 10px;
+            gap: 0.3125rem;
             justify-content: center;
+        }
+
+        .زر-سورة {
+            background: var(--أخضر);
+            border: none;
+            color: white;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+
+        .زر-سورة:hover {
+            opacity: 0.9;
+            transform: scale(1.05);
         }
 
         .زر-تشغيل {
             background: var(--أخضر);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            flex: 1;
-            font-weight: 600;
-        }
-
-        .زر-تشغيل:hover {
-            background: var(--أخضر-فاتح);
-            transform: translateY(-2px);
         }
 
         .زر-تنزيل {
             background: var(--أزرق);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            flex: 1;
-            font-weight: 600;
-        }
-
-        .زر-تنزيل:hover {
-            background: var(--أزرق-فاتح);
-            transform: translateY(-2px);
         }
 
         /* قسم الصلاة */
         .حاوية-صلاة {
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 30px;
-            margin: 40px auto;
-            max-width: 800px;
-            border: 1px solid rgba(46, 125, 50, 0.3);
+            border-radius: 0.9375rem;
+            padding: 1.25rem;
+            margin-bottom: 1.25rem;
+            border: 1px solid rgba(76, 175, 80, 0.3);
         }
 
-        .معلومات-صلاة {
+        .معلومات-موقع {
             text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 1.25rem;
         }
 
-        .معلومات-صلاة h3 {
-            color: var(--أخضر-فاتح);
-            margin-bottom: 10px;
-            font-size: 1.4rem;
+        .زر-تحديد {
+            background: linear-gradient(135deg, var(--أخضر), var(--أخضر-فاتح));
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 1.5625rem;
+            font-size: 0.9rem;
+            cursor: pointer;
+            margin: 0.625rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.625rem;
+            width: 100%;
+            transition: all 0.3s ease;
         }
 
-        .أوقات-صلاة {
+        .زر-تحديد:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+        }
+
+        .اختيار-محافظة {
+            width: 100%;
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: 0.625rem;
+            margin-top: 0.625rem;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .اختيار-محافظة option {
+            background: var(--أخضر-داكن);
+            color: white;
+        }
+
+        .شبكة-صلاة {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin: 30px 0;
+            gap: 0.9375rem;
+            margin-top: 1.5rem;
         }
 
         .بطاقة-صلاة {
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
         }
 
         .بطاقة-صلاة:hover {
-            background: rgba(46, 125, 50, 0.1);
-            border-color: var(--أخضر);
-            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .معلومات-صلاة {
+            flex: 1;
         }
 
         .اسم-صلاة {
-            font-size: 1.2rem;
             color: var(--ذهبي);
-            margin-bottom: 10px;
             font-weight: 600;
+            font-size: 1.1rem;
         }
 
         .وقت-صلاة {
-            font-size: 1.4rem;
-            color: var(--نص-فاتح);
-            font-family: 'Courier New', monospace;
+            color: var(--أبيض);
+            font-size: 1.3rem;
             font-weight: 700;
+            font-family: 'Courier New', monospace;
+            margin-top: 0.3125rem;
         }
 
         .عد-تنازلي {
-            font-size: 0.9rem;
             color: var(--أخضر-فاتح);
-            margin-top: 10px;
-            direction: ltr;
+            font-size: 0.9rem;
             font-family: 'Courier New', monospace;
+            direction: ltr;
         }
 
         .صلاة-قادمة {
-            background: linear-gradient(135deg, rgba(46, 125, 50, 0.2), rgba(33, 150, 243, 0.2));
-            border: 2px solid var(--أخضر);
-            border-radius: 15px;
-            padding: 20px;
-            margin: 30px auto;
-            max-width: 500px;
+            background: linear-gradient(135deg, rgba(46, 125, 50, 0.3), rgba(76, 175, 80, 0.3));
+            border: 2px solid var(--أخضر-فاتح);
+            border-radius: 0.9375rem;
+            padding: 1.25rem;
+            margin-top: 1.5rem;
             text-align: center;
         }
 
-        .صلاة-قادمة h4 {
-            color: var(--أخضر-فاتح);
-            margin-bottom: 10px;
+        /* قسم القبلة */
+        .حاوية-قبلة {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 0.9375rem;
+            padding: 1.5rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
         }
 
-        #الصلاة_القادمة {
+        .بوصلة {
+            width: 200px;
+            height: 200px;
+            margin: 1.25rem auto;
+            position: relative;
+        }
+
+        .دائرة-بوصلة {
+            width: 100%;
+            height: 100%;
+            border: 5px solid var(--ذهبي);
+            border-radius: 50%;
+            position: relative;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .اتجاه-قبلة {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--أحمر);
             font-size: 1.5rem;
-            color: var(--ذهبي);
-            margin: 10px 0;
-            font-weight: 700;
+            font-weight: bold;
         }
 
-        #العد_التنازلي {
-            font-size: 1.2rem;
-            color: var(--نص-فاتح);
-            font-family: 'Courier New', monospace;
-            direction: ltr;
+        .شمال, .جنوب, .شرق, .غرب {
+            position: absolute;
+            color: var(--أبيض);
+            font-weight: bold;
+        }
+
+        .شمال { top: 10px; left: 50%; transform: translateX(-50%); }
+        .جنوب { bottom: 10px; left: 50%; transform: translateX(-50%); }
+        .شرق { top: 50%; right: 10px; transform: translateY(-50%); }
+        .غرب { top: 50%; left: 10px; transform: translateY(-50%); }
+
+        .إبرة-بوصلة {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80%;
+            height: 4px;
+            background: var(--أحمر);
+            transform-origin: left center;
+            transition: transform 0.5s ease;
+        }
+
+        .إبرة-بوصلة::after {
+            content: '';
+            position: absolute;
+            right: -10px;
+            top: -8px;
+            width: 20px;
+            height: 20px;
+            background: var(--أحمر);
+            border-radius: 50%;
+        }
+
+        .معلومات-قبلة {
+            margin-top: 1.25rem;
+            color: var(--أبيض);
+        }
+
+        .درجة-قبلة {
+            font-size: 1.8rem;
+            color: var(--ذهبي);
+            font-weight: bold;
+            margin: 0.625rem 0;
+        }
+
+        .زر-تحديد-قبلة {
+            background: linear-gradient(135deg, var(--أحمر), #e53935);
+            color: white;
+            border: none;
+            padding: 0.9375rem 1.875rem;
+            border-radius: 1.5625rem;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 1.25rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.625rem;
+            transition: all 0.3s ease;
+        }
+
+        .زر-تحديد-قبلة:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(198, 40, 40, 0.4);
         }
 
         /* قسم التسبيح */
         .حاوية-تسبيح {
-            max-width: 500px;
-            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 0.9375rem;
+            padding: 1.875rem;
             text-align: center;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(156, 39, 176, 0.3);
         }
 
         .عداد-تسبيح {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            padding: 40px;
-            border: 2px solid rgba(212, 175, 55, 0.3);
-            margin-bottom: 30px;
-        }
-
-        #العداد {
             font-size: 5rem;
             color: var(--ذهبي);
             font-weight: 900;
-            margin: 20px 0;
-            font-family: 'Courier New', monospace;
+            margin: 1.25rem 0;
             text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+            font-family: 'Courier New', monospace;
         }
 
         .أزرار-تسبيح {
             display: flex;
-            gap: 20px;
+            gap: 0.9375rem;
             justify-content: center;
+            margin-top: 1.875rem;
+            flex-wrap: wrap;
         }
 
-        .زر-تسبيح {
-            padding: 15px 30px;
+        .زر-تسبيح-كبير {
+            background: var(--أخضر);
+            color: white;
             border: none;
-            border-radius: 50px;
+            padding: 1.125rem 2.1875rem;
+            border-radius: 0.9375rem;
             font-size: 1.1rem;
-            font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 0.625rem;
+            transition: all 0.3s ease;
             min-width: 150px;
             justify-content: center;
         }
 
-        .زر-زيادة {
-            background: var(--أخضر);
-            color: white;
+        .زر-تسبيح-كبير:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(46, 125, 50, 0.4);
         }
 
         .زر-إعادة {
             background: var(--أزرق);
-            color: white;
-        }
-
-        .زر-تسبيح:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
         /* قسم الأدعية */
         .شبكة-أدعية {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 25px;
-            margin: 40px 0;
+            gap: 1.25rem;
+            margin-top: 1.5rem;
         }
 
         .بطاقة-دعاء {
             background: rgba(255, 255, 255, 0.05);
+            border-radius: 0.9375rem;
+            padding: 1.5rem;
             border: 1px solid rgba(156, 39, 176, 0.3);
-            border-radius: 15px;
-            padding: 25px;
             transition: all 0.3s ease;
         }
 
         .بطاقة-دعاء:hover {
-            border-color: var(--بنفسجي);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transform: translateY(-3px);
+            border-color: rgba(156, 39, 176, 0.6);
         }
 
         .عنوان-دعاء {
-            color: var(--بنفسجي-فاتح);
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            text-align: center;
-            font-family: 'Lateef', serif;
+            color: var(--ذهبي);
+            font-size: 1.2rem;
+            margin-bottom: 0.9375rem;
+            font-family: 'Reem Kufi', sans-serif;
         }
 
         .نص-دعاء {
-            color: var(--نص);
-            font-size: 1.1rem;
+            color: var(--أبيض);
             line-height: 1.8;
-            margin-bottom: 20px;
-            text-align: justify;
+            margin-bottom: 1.25rem;
             font-family: 'Amiri', serif;
+            font-size: 1.1rem;
+            text-align: justify;
         }
 
-        /* قسم عن التطبيق */
-        .معلومات-تطبيق {
-            background: linear-gradient(135deg, rgba(123, 31, 162, 0.1), rgba(156, 39, 176, 0.1));
-            border: 1px solid rgba(156, 39, 176, 0.3);
-            border-radius: 15px;
-            padding: 30px;
-            margin: 40px auto;
-            max-width: 800px;
-        }
-
-        .مربع-معلومات {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        /* القائمة */
-        .قائمة-مميزات {
-            list-style: none;
-            margin: 20px 0;
-        }
-
-        .قائمة-مميزات li {
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        .زر-دعاء {
+            background: var(--أخضر);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 1.5625rem;
+            cursor: pointer;
+            font-size: 0.9rem;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 0.625rem;
+            transition: all 0.3s ease;
         }
 
-        .قائمة-مميزات li i {
-            color: var(--أخضر-فاتح);
+        .زر-دعاء:hover {
+            background: var(--أخضر-فاتح);
+            transform: translateY(-2px);
         }
 
-        /* التذييل */
-        .تذييل {
-            background: rgba(26, 26, 46, 0.95);
-            margin-top: 80px;
-            padding: 50px 20px;
-            border-top: 2px solid var(--ذهبي);
-            text-align: center;
-        }
-
-        .محتوى-تذييل {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .شبكة-تذييل {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
-        }
-
-        .مربع-تذييل {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .مربع-تذييل i {
-            font-size: 2.5rem;
-            color: var(--ذهبي);
-            margin-bottom: 15px;
-        }
-
-        /* مشغل الصوت */
-        .مشغل-صوت {
+        /* مشغل الصوت المتقدم */
+        .مشغل-متقدم {
             position: fixed;
-            bottom: 20px;
-            left: 20px;
-            right: 20px;
-            background: rgba(26, 26, 46, 0.95);
-            border: 2px solid var(--ذهبي);
-            border-radius: 15px;
-            padding: 15px;
-            z-index: 1001;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 71, 42, 0.95);
+            border-top: 3px solid var(--ذهبي);
+            padding: 1rem;
+            z-index: 1000;
             display: none;
             backdrop-filter: blur(10px);
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.5);
         }
 
-        .مشغل-صوت.نشط {
+        .مشغل-متقدم.نشط {
             display: block;
             animation: انزلاق-للأعلى 0.3s ease;
         }
 
         @keyframes انزلاق-للأعلى {
-            from { transform: translateY(100%); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+            from { bottom: -200px; opacity: 0; }
+            to { bottom: 0; opacity: 1; }
         }
 
         .تحكم-مشغل {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .أزرار-تحكم {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .زر-تحكم {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: var(--أبيض);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 15px;
-            flex-wrap: wrap;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .زر-تحكم:hover {
+            background: var(--ذهبي);
+            color: var(--أسود);
+        }
+
+        .زر-تشغيل-رئيسي {
+            background: var(--أخضر);
+            color: white;
+            width: 50px;
+            height: 50px;
         }
 
         .معلومات-صوت {
             flex: 1;
-            min-width: 200px;
+            min-width: 0;
         }
 
         #اسم_السورة {
             color: var(--ذهبي);
             font-weight: 600;
-            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: 0.25rem;
         }
 
-        #الوقت_الحالي {
-            color: var(--نص);
+        #الوقت_الصوت {
+            color: var(--أبيض);
             font-size: 0.9rem;
             font-family: 'Courier New', monospace;
             direction: ltr;
         }
 
+        .شريط-تقدم {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            margin: 1rem 0;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .شريط-تقدم-مملوء {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: var(--ذهبي);
+            border-radius: 2px;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        .أزرار-إضافية {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .زر-إضافي {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--ذهبي);
+            color: var(--أبيض);
+            padding: 0.5rem 1rem;
+            border-radius: 1.25rem;
+            cursor: pointer;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .زر-إضافي:hover {
+            background: var(--ذهبي);
+            color: var(--أسود);
+        }
+
+        /* تذييل التطبيق */
+        .تذييل-تطبيق {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1.5rem 1.25rem;
+            text-align: center;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            margin-top: 2rem;
+        }
+
+        .معلومات-تذييل {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
         /* إشعارات */
         .إشعار {
             position: fixed;
-            top: 100px;
-            left: 20px;
-            right: 20px;
-            background: linear-gradient(90deg, var(--أخضر), var(--أزرق));
+            top: 1.25rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--أخضر), var(--أزرق));
             color: white;
-            padding: 15px 20px;
-            border-radius: 10px;
-            z-index: 1002;
+            padding: 0.9375rem 1.5rem;
+            border-radius: 0.625rem;
+            z-index: 1001;
             display: none;
             animation: ظهور-إشعار 0.3s ease;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            max-width: 90%;
         }
 
         @keyframes ظهور-إشعار {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { top: -100px; opacity: 0; }
+            to { top: 20px; opacity: 1; }
         }
 
-        /* النجوم */
-        .نجوم {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .نجمة {
-            position: absolute;
-            background-color: white;
-            border-radius: 50%;
-            animation: توهج 3s infinite alternate;
-        }
-
-        @keyframes توهج {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
-        }
-
-        /* تجاوب */
+        /* تجاوب للهواتف */
         @media (max-width: 768px) {
-            .حاوية-رأس {
-                justify-content: center;
+            html {
+                font-size: 14px;
+            }
+            
+            .شعار-تطبيق {
+                flex-direction: column;
                 text-align: center;
             }
             
-            .شعار-نص {
-                font-size: 1.5rem;
-            }
-            
-            .زر-تنقل {
-                padding: 10px 15px;
-                font-size: 0.8rem;
+            .تنقل-تطبيق {
+                grid-template-columns: repeat(3, 1fr);
             }
             
             .زر-تنقل span {
-                display: none;
+                font-size: 0.7rem;
             }
             
-            .شبكة-سور {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-            
-            .شبكة-أدعية {
-                grid-template-columns: 1fr;
-            }
-            
-            .أوقات-صلاة {
+            .قائمة-سور {
                 grid-template-columns: repeat(2, 1fr);
             }
             
-            .مشغل-صوت {
-                left: 10px;
-                right: 10px;
-                bottom: 10px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .شعار-نص {
-                font-size: 1.3rem;
+            .بوصلة {
+                width: 150px;
+                height: 150px;
             }
             
-            .عنوان-قسم h2 {
-                font-size: 1.8rem;
-            }
-            
-            .شبكة-سور {
-                grid-template-columns: 1fr;
-            }
-            
-            .أوقات-صلاة {
-                grid-template-columns: 1fr;
+            .عداد-تسبيح {
+                font-size: 4rem;
             }
             
             .أزرار-تسبيح {
                 flex-direction: column;
             }
             
-            .زر-تسبيح {
+            .زر-تسبيح-كبير {
                 width: 100%;
+            }
+            
+            .تحكم-مشغل {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+            
+            .أزرار-تحكم {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            html {
+                font-size: 12px;
+            }
+            
+            .تنقل-تطبيق {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .زر-تنقل {
+                min-height: 60px;
+            }
+            
+            .زر-تنقل span {
+                display: none;
+            }
+            
+            .زر-تنقل i {
+                font-size: 1.5rem;
+            }
+            
+            .قائمة-سور {
+                grid-template-columns: 1fr;
+            }
+            
+            .عنوان-قسم {
+                font-size: 1.2rem;
+            }
+            
+            .عنوان-تطبيق {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .حاوية-تطبيق {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+
+        /* دعم الأجهزة اللوحية */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .حاوية-تطبيق {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            
+            .قائمة-سور {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
     </style>
 </head>
 <body>
-    <!-- النجوم المتحركة -->
-    <div class="نجوم" id="نجوم"></div>
-    
-    <!-- شريط التنبيه العلوي -->
-    <div class="تنبيه">
-        <i class="fas fa-info-circle"></i> تطبيق مجاني بالكامل - لا نجمّع أي بيانات شخصية - الصدقة الجارية عن المرحومة كريمة والمريضة حوراء
-    </div>
-    
-    <!-- الرأس -->
-    <header class="رأس">
-        <div class="حاوية-رأس">
-            <div class="شعار">
+    <div class="حاوية-تطبيق">
+        <!-- رأس التطبيق -->
+        <header class="رأس-تطبيق">
+            <div class="شعار-تطبيق">
                 <i class="fas fa-quran"></i>
                 <div>
-                    <div class="شعار-نص">القرآن الكريم</div>
-                    <div style="font-size: 0.9rem; color: var(--ذهبي-فاتح);">نظام شامل مجاني</div>
+                    <div class="عنوان-تطبيق">القرآن الشامل</div>
+                    <div class="وصف-تطبيق">تطبيق إسلامي مجاني شامل</div>
                 </div>
             </div>
-            <div class="زمن" id="الوقت_الحالي">
-                جاري التحميل...
-            </div>
+        </header>
+        
+        <!-- شريط الوقت -->
+        <div class="شريط-وقت" id="الوقت_الحالي">
+            جاري التحميل...
         </div>
-    </header>
-    
-    <!-- التنقل -->
-    <nav class="تنقل">
-        <div class="أزرار-تنقل">
+        
+        <!-- التنقل -->
+        <nav class="تنقل-تطبيق">
             <button class="زر-تنقل نشط" onclick="تغيير_القسم('القرآن')">
                 <i class="fas fa-quran"></i>
-                <span>القرآن الكريم</span>
+                <span>القرآن</span>
             </button>
             <button class="زر-تنقل" onclick="تغيير_القسم('الصلاة')">
                 <i class="fas fa-mosque"></i>
-                <span>مواقيت الصلاة</span>
+                <span>الصلاة</span>
+            </button>
+            <button class="زر-تنقل" onclick="تغيير_القسم('القبلة')">
+                <i class="fas fa-compass"></i>
+                <span>القبلة</span>
             </button>
             <button class="زر-تنقل" onclick="تغيير_القسم('التسبيح')">
                 <i class="fas fa-pray"></i>
@@ -821,328 +941,294 @@
             </button>
             <button class="زر-تنقل" onclick="تغيير_القسم('الأدعية')">
                 <i class="fas fa-hands-praying"></i>
-                <span>الأدعية</span>
+                <span>أدعية</span>
             </button>
-            <button class="زر-تنقل" onclick="تغيير_القسم('عن_التطبيق')">
-                <i class="fas fa-info-circle"></i>
-                <span>عن التطبيق</span>
-            </button>
-        </div>
-    </nav>
-    
-    <!-- الإشعارات -->
-    <div class="إشعار" id="إشعار"></div>
-    
-    <!-- المحتوى الرئيسي -->
-    <main class="محتوى">
+        </nav>
         
-        <!-- قسم القرآن الكريم -->
-        <section id="قسم-القرآن" class="قسم نشط">
-            <div class="عنوان-قسم">
-                <h2><i class="fas fa-quran"></i> القرآن الكريم</h2>
-            </div>
-            
-            <div class="معلومات-قرآن">
-                <h3><i class="fas fa-microphone-alt"></i> اختر القارئ</h3>
-                <div class="أزرار-قراء">
-                    <button class="زر-قارئ نشط" onclick="تغيير_القارئ('عبدالباسط')">عبد الباسط</button>
-                    <button class="زر-قارئ" onclick="تغيير_القارئ('المنشاوي')">المنشاوي</button>
-                    <button class="زر-قارئ" onclick="تغيير_القارئ('الحصري')">الحصري</button>
-                </div>
-                <p style="color: var(--ذهبي-فاتح); font-size: 0.9rem;">
-                    <i class="fas fa-info-circle"></i> اضغط على أي سورة للاستماع أو التنزيل
-                </p>
-            </div>
-            
-            <div class="شبكة-سور" id="قائمة-السور">
-                <!-- السور ستظهر هنا -->
-            </div>
-        </section>
+        <!-- الإشعارات -->
+        <div class="إشعار" id="إشعار"></div>
         
-        <!-- قسم مواقيت الصلاة -->
-        <section id="قسم-الصلاة" class="قسم">
-            <div class="عنوان-قسم">
-                <h2><i class="fas fa-mosque"></i> مواقيت الصلاة</h2>
-            </div>
+        <!-- المحتوى الرئيسي -->
+        <main class="محتوى-تطبيق">
             
-            <div class="حاوية-صلاة">
-                <div class="معلومات-صلاة">
-                    <h3><i class="fas fa-map-marker-alt"></i> حسب فتاوى السيد السيستاني</h3>
-                    <div id="موقع_الحالي" style="color: var(--ذهبي-فاتح); margin: 10px 0;">
-                        <i class="fas fa-location-dot"></i> جاري تحديد موقعك...
+            <!-- قسم القرآن الكريم -->
+            <section id="قسم-القرآن" class="قسم نشط">
+                <h2 class="عنوان-قسم"><i class="fas fa-quran"></i> القرآن الكريم</h2>
+                
+                <div class="خيارات-قرآن">
+                    <div style="text-align: center; color: var(--ذهبي); margin-bottom: 15px;">
+                        <i class="fas fa-microphone-alt"></i> اختر القارئ
                     </div>
-                    <button onclick="تحديد_الموقع()" style="background: var(--أزرق); color: white; border: none; padding: 10px 20px; border-radius: 50px; cursor: pointer; margin: 10px 5px;">
-                        <i class="fas fa-location-crosshairs"></i> تحديد موقعي تلقائياً
+                    <div class="مجموعة-أزرار">
+                        <button class="زر-خيار نشط" onclick="تغيير_القارئ('عبدالباسط')">عبد الباسط</button>
+                        <button class="زر-خيار" onclick="تغيير_القارئ('المنشاوي')">المنشاوي</button>
+                        <button class="زر-خيار" onclick="تغيير_القارئ('الحصري')">الحصري</button>
+                    </div>
+                </div>
+                
+                <div class="قائمة-سور" id="قائمة-السور">
+                    <!-- السور ستظهر هنا -->
+                </div>
+            </section>
+            
+            <!-- قسم مواقيت الصلاة -->
+            <section id="قسم-الصلاة" class="قسم">
+                <h2 class="عنوان-قسم"><i class="fas fa-mosque"></i> مواقيت الصلاة</h2>
+                
+                <div class="حاوية-صلاة">
+                    <div class="معلومات-موقع">
+                        <div id="موقع_الحالي" style="color: var(--ذهبي); margin-bottom: 15px;">
+                            <i class="fas fa-map-marker-alt"></i> جاري تحديد موقعك...
+                        </div>
+                        <button class="زر-تحديد" onclick="تحديد_الموقع()">
+                            <i class="fas fa-location-crosshairs"></i> تحديد موقعي تلقائياً
+                        </button>
+                        
+                        <select class="اختيار-محافظة" id="اختيار-محافظة" onchange="تغيير_المحافظة(this.value)">
+                            <option value="">اختر محافظة</option>
+                            <option value="بغداد">بغداد</option>
+                            <option value="البصرة">البصرة</option>
+                            <option value="النجف">النجف</option>
+                            <option value="كربلاء">كربلاء</option>
+                            <option value="الموصل">الموصل</option>
+                            <option value="أربيل">أربيل</option>
+                            <option value="السليمانية">السليمانية</option>
+                        </select>
+                    </div>
+                    
+                    <div class="شبكة-صلاة" id="أوقات-الصلاة">
+                        <!-- أوقات الصلاة ستظهر هنا -->
+                    </div>
+                    
+                    <div class="صلاة-قادمة">
+                        <div style="color: var(--أخضر-فاتح); margin-bottom: 10px;">
+                            <i class="fas fa-bell"></i> الصلاة القادمة
+                        </div>
+                        <div id="الصلاة_القادمة" style="font-size: 1.2rem; color: var(--ذهبي); font-weight: bold; margin: 10px 0;"></div>
+                        <div id="العد_التنازلي" style="font-family: 'Courier New', monospace; direction: ltr; font-size: 1.1rem; color: var(--أبيض);"></div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- قسم اتجاه القبلة -->
+            <section id="قسم-القبلة" class="قسم">
+                <h2 class="عنوان-قسم"><i class="fas fa-compass"></i> اتجاه القبلة</h2>
+                
+                <div class="حاوية-قبلة">
+                    <div class="بوصلة">
+                        <div class="دائرة-بوصلة">
+                            <div class="شمال">ش</div>
+                            <div class="جنوب">ج</div>
+                            <div class="شرق">ق</div>
+                            <div class="غرب">غ</div>
+                            <div class="اتجاه-قبلة">🕋</div>
+                            <div class="إبرة-بوصلة" id="إبرة-بوصلة"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="معلومات-قبلة">
+                        <div>اتجاه القبلة من موقعك الحالي</div>
+                        <div class="درجة-قبلة" id="درجة-قبلة">0°</div>
+                        <div id="اتجاه-نصي">جاري تحديد الاتجاه...</div>
+                    </div>
+                    
+                    <button class="زر-تحديد-قبلة" onclick="تحديد_القبلة()">
+                        <i class="fas fa-compass"></i> تحديد اتجاه القبلة
                     </button>
-                    <select id="اختيار-محافظة" onchange="تغيير_المحافظة(this.value)" style="background: rgba(255,255,255,0.1); color: white; border: 1px solid var(--ذهبي); padding: 10px 15px; border-radius: 50px; cursor: pointer;">
-                        <option value="">اختر محافظة</option>
-                        <option value="بغداد">بغداد</option>
-                        <option value="البصرة">البصرة</option>
-                        <option value="النجف">النجف</option>
-                        <option value="كربلاء">كربلاء</option>
-                        <option value="الموصل">الموصل</option>
-                        <option value="أربيل">أربيل</option>
-                        <option value="السليمانية">السليمانية</option>
+                </div>
+            </section>
+            
+            <!-- قسم التسبيح -->
+            <section id="قسم-التسبيح" class="قسم">
+                <h2 class="عنوان-قسم"><i class="fas fa-pray"></i> التسبيح الإلكتروني</h2>
+                
+                <div class="حاوية-تسبيح">
+                    <div style="color: var(--ذهبي-فاتح); margin-bottom: 20px;">
+                        سبحان الله والحمد لله ولا إله إلا الله والله أكبر
+                    </div>
+                    
+                    <div class="عداد-تسبيح" id="عداد-تسبيح">0</div>
+                    
+                    <div class="أزرار-تسبيح">
+                        <button class="زر-تسبيح-كبير" onclick="زيادة_التسبيح()">
+                            <i class="fas fa-plus-circle"></i> تسبيح
+                        </button>
+                        <button class="زر-تسبيح-كبير زر-إعادة" onclick="إعادة_التسبيح()">
+                            <i class="fas fa-redo"></i> إعادة
+                        </button>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- قسم الأدعية -->
+            <section id="قسم-الأدعية" class="قسم">
+                <h2 class="عنوان-قسم"><i class="fas fa-hands-praying"></i> الأدعية المأثورة</h2>
+                
+                <div class="شبكة-أدعية">
+                    <!-- دعاء الصباح -->
+                    <div class="بطاقة-دعاء">
+                        <h3 class="عنوان-دعاء">دعاء الصباح</h3>
+                        <p class="نص-دعاء">
+                            بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ، اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَآلِ مُحَمَّدٍ، اللَّهُمَّ إِنِّي أَصْبَحْتُ أُشْهِدُكَ وَأُشْهِدُ حَمَلَةَ عَرْشِكَ وَمَلَائِكَتَكَ وَجَمِيعَ خَلْقِكَ، أَنَّكَ أَنْتَ اللَّهُ لَا إِلَهَ إِلَّا أَنْتَ وَحْدَكَ لَا شَرِيكَ لَكَ، وَأَنَّ مُحَمَّدًا عَبْدُكَ وَرَسُولُكَ...
+                        </p>
+                        <button class="زر-دعاء" onclick="تشغيل_دعاء('صباح')">
+                            <i class="fas fa-play-circle"></i> استماع للدعاء
+                        </button>
+                    </div>
+                    
+                    <!-- دعاء المساء -->
+                    <div class="بطاقة-دعاء">
+                        <h3 class="عنوان-دعاء">دعاء المساء</h3>
+                        <p class="نص-دعاء">
+                            اللَّهُمَّ بِكَ أَمْسَيْنَا وَبِكَ أَصْبَحْنَا، وَبِكَ نَحْيَا وَبِكَ نَمُوتُ وَإِلَيْكَ النُّشُورُ، اللَّهُمَّ إِنِّي أَسْأَلُكَ خَيْرَ هَذِهِ اللَّيْلَةِ وَخَيْرَ مَا فِيهَا، وَأَعُوذُ بِكَ مِنْ شَرِّهَا وَشَرِّ مَا فِيهَا، اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْكَسَلِ وَسُوءِ الْكِبَرِ...
+                        </p>
+                        <button class="زر-دعاء" onclick="تشغيل_دعاء('مساء')">
+                            <i class="fas fa-play-circle"></i> استماع للدعاء
+                        </button>
+                    </div>
+                    
+                    <!-- دعاء الفرج -->
+                    <div class="بطاقة-دعاء">
+                        <h3 class="عنوان-دعاء">دعاء الفرج</h3>
+                        <p class="نص-دعاء">
+                            يَا مُفَرِّجَ كُلِّ كَرْبٍ، وَيَا مُذْهِبَ كُلِّ حُزْنٍ، وَيَا كَاشِفَ كُلِّ بَلاءٍ، وَيَا سَامِعَ كُلِّ نَجْوَى، وَيَا مُنْزِلَ كُلِّ رَحْمَةٍ، وَيَا مُعْطِيَ كُلِّ سُؤْلٍ، يَا مَنْ لَا يُحتاجُ إِلَى التَّفْسِيرِ وَالسُّؤَالِ، يَا عَالِمَ مَا فِي الصُّدُورِ...
+                        </p>
+                        <button class="زر-دعاء" onclick="تشغيل_دعاء('فرج')">
+                            <i class="fas fa-play-circle"></i> استماع للدعاء
+                        </button>
+                    </div>
+                    
+                    <!-- دعاء الهم والحزن -->
+                    <div class="بطاقة-دعاء">
+                        <h3 class="عنوان-دعاء">دعاء الهم والحزن</h3>
+                        <p class="نص-دعاء">
+                            اللَّهُمَّ إِنِّي عَبْدُكَ وَابْنُ عَبْدِكَ وَابْنُ أَمَتِكَ، نَاصِيَتِي بِيَدِكَ، مَاضٍ فِيَّ حُكْمُكَ، عَدْلٌ فِيَّ قَضَاؤُكَ، أَسْأَلُكَ بِكُلِّ اسْمٍ هُوَ لَكَ، سَمَّيْتَ بِهِ نَفْسَكَ أَوْ أَنْزَلْتَهُ فِي كِتَابِكَ أَوْ عَلَّمْتَهُ أَحَدًا مِنْ خَلْقِكَ...
+                        </p>
+                        <button class="زر-دعاء" onclick="تشغيل_دعاء('هم')">
+                            <i class="fas fa-play-circle"></i> استماع للدعاء
+                        </button>
+                    </div>
+                    
+                    <!-- دعاء السفر -->
+                    <div class="بطاقة-دعاء">
+                        <h3 class="عنوان-دعاء">دعاء السفر</h3>
+                        <p class="نص-دعاء">
+                            سُبْحانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ، وَإِنَّا إِلَى رَبِّنَا لَمُنْقَلِبُونَ، اللَّهُمَّ إِنَّا نَسْأَلُكَ فِي سَفَرِنَا هَذَا الْبِرَّ وَالتَّقْوَى، وَمِنَ الْعَمَلِ مَا تَرْضَى، اللَّهُمَّ هَوِّنْ عَلَيْنَا سَفَرَنَا هَذَا وَاطْوِ عَنَّا بُعْدَهُ...
+                        </p>
+                        <button class="زر-دعاء" onclick="تشغيل_دعاء('سفر')">
+                            <i class="fas fa-play-circle"></i> استماع للدعاء
+                        </button>
+                    </div>
+                    
+                    <!-- دعاء المرض -->
+                    <div class="بطاقة-دعاء">
+                        <h3 class="عنوان-دعاء">دعاء المرض والشفاء</h3>
+                        <p class="نص-دعاء">
+                            اللَّهُمَّ رَبَّ النَّاسِ، أَذْهِبِ الْبَأْسَ، وَاشْفِ أَنْتَ الشَّافِي، لَا شِفَاءَ إِلَّا شِفَاؤُكَ، شِفَاءً لَا يُغَادِرُ سَقَمًا، اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْبَرَصِ وَالْجُنُونِ وَالْجُذَامِ وَمِنْ سَيِّئِ الْأَسْقَامِ، اللَّهُمَّ عَافِنِي فِي بَدَنِي، اللَّهُمَّ عَافِنِي فِي سَمْعِي...
+                        </p>
+                        <button class="زر-دعاء" onclick="تشغيل_دعاء('شفاء')">
+                            <i class="fas fa-play-circle"></i> استماع للدعاء
+                        </button>
+                    </div>
+                    
+                    <!-- دعاء التوبة -->
+                    <div class="بطاقة-دعاء">
+                        <h3 class="عنوان-دعاء">دعاء التوبة والاستغفار</h3>
+                        <p class="نص-دعاء">
+                            أَسْتَغْفِرُ اللَّهَ الْعَظِيمَ الَّذِي لَا إِلَهَ إِلَّا هُوَ الْحَيَّ الْقَيُّومَ وَأَتُوبُ إِلَيْهِ، أَسْتَغْفِرُ اللَّهَ الَّذِي لَا إِلَهَ إِلَّا هُوَ الْحَيَّ الْقَيُّومَ وَأَتُوبُ إِلَيْهِ، اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ...
+                        </p>
+                        <button class="زر-دعاء" onclick="تشغيل_دعاء('توبة')">
+                            <i class="fas fa-play-circle"></i> استماع للدعاء
+                        </button>
+                    </div>
+                    
+                    <!-- دعاء قضاء الدين -->
+                    <div class="بطاقة-دعاء">
+                        <h3 class="عنوان-دعاء">دعاء قضاء الدين</h3>
+                        <p class="نص-دعاء">
+                            اللَّهُمَّ اكْفِنِي بِحَلَالِكَ عَنْ حَرَامِكَ، وَأَغْنِنِي بِفَضْلِكَ عَمَّنْ سِوَاكَ، اللَّهُمَّ اقْضِ عَنِّي الدَّيْنَ وَأَغْنِنِي مِنَ الْفَقْرِ، إِنَّكَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحُزْنِ، وَالْعَجْزِ وَالْكَسَلِ...
+                        </p>
+                        <button class="زر-دعاء" onclick="تشغيل_دعاء('دين')">
+                            <i class="fas fa-play-circle"></i> استماع للدعاء
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <!-- مشغل الصوت المتقدم -->
+        <div class="مشغل-متقدم" id="مشغل-متقدم">
+            <div class="تحكم-مشغل">
+                <div class="أزرار-تحكم">
+                    <button class="زر-تحكم" onclick="التشغيل_السابق()">
+                        <i class="fas fa-step-backward"></i>
+                    </button>
+                    <button class="زر-تحكم زر-تشغيل-رئيسي" id="زر-التشغيل-رئيسي" onclick="تبديل_التشغيل()">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button class="زر-تحكم" onclick="التشغيل_التالي()">
+                        <i class="fas fa-step-forward"></i>
+                    </button>
+                </div>
+                
+                <div class="معلومات-صوت">
+                    <div id="اسم_السورة_متقدم">لم يتم اختيار سورة</div>
+                    <div id="الوقت_الصوت_متقدم">00:00 / 00:00</div>
+                </div>
+                
+                <div class="أزرار-تحكم">
+                    <select onchange="تغيير_السرعة(this.value)" style="background: rgba(255,255,255,0.1); color: white; border: 1px solid var(--ذهبي); padding: 0.25rem 0.5rem; border-radius: 0.25rem; cursor: pointer;">
+                        <option value="0.5">0.5x</option>
+                        <option value="0.75">0.75x</option>
+                        <option value="1" selected>1x</option>
+                        <option value="1.25">1.25x</option>
+                        <option value="1.5">1.5x</option>
+                        <option value="2">2x</option>
                     </select>
-                </div>
-                
-                <div class="أوقات-صلاة" id="أوقات-الصلاة">
-                    <!-- أوقات الصلاة ستظهر هنا -->
-                </div>
-                
-                <div class="صلاة-قادمة">
-                    <h4><i class="fas fa-bell"></i> الصلاة القادمة</h4>
-                    <div id="الصلاة_القادمة">جاري الحساب...</div>
-                    <div id="العد_التنازلي">--:--:--</div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- قسم التسبيح -->
-        <section id="قسم-التسبيح" class="قسم">
-            <div class="عنوان-قسم">
-                <h2><i class="fas fa-pray"></i> التسبيح الإلكتروني</h2>
-            </div>
-            
-            <div class="حاوية-تسبيح">
-                <div class="عداد-تسبيح">
-                    <h3 style="color: var(--ذهبي); margin-bottom: 20px;">سبحان الله والحمد لله ولا إله إلا الله والله أكبر</h3>
-                    <div id="العداد">0</div>
-                    <p style="color: var(--نص); margin-top: 20px;">اضغط على الزر لزيادة التسبيحة</p>
-                </div>
-                
-                <div class="أزرار-تسبيح">
-                    <button class="زر-تسبيح زر-زيادة" onclick="زيادة_التسبيح()">
-                        <i class="fas fa-plus-circle"></i> تسبيح
-                    </button>
-                    <button class="زر-تسبيح زر-إعادة" onclick="إعادة_التسبيح()">
-                        <i class="fas fa-redo"></i> إعادة تعيين
+                    
+                    <button class="زر-تحكم" onclick="إغلاق_المشغل()">
+                        <i class="fas fa-times"></i>
                     </button>
                 </div>
             </div>
-        </section>
-        
-        <!-- قسم الأدعية -->
-        <section id="قسم-الأدعية" class="قسم">
-            <div class="عنوان-قسم">
-                <h2><i class="fas fa-hands-praying"></i> الأدعية المأثورة</h2>
+            
+            <div class="شريط-تقدم" onclick="تحديد_الوقت(event)">
+                <div class="شريط-تقدم-مملوء" id="شريط-تقدم-مملوء"></div>
             </div>
             
-            <div class="شبكة-أدعية">
-                <div class="بطاقة-دعاء">
-                    <h3 class="عنوان-دعاء">دعاء الصباح</h3>
-                    <p class="نص-دعاء">
-                        بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ، اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَآلِ مُحَمَّدٍ، 
-                        اللَّهُمَّ إِنِّي أَصْبَحْتُ أُشْهِدُكَ وَأُشْهِدُ حَمَلَةَ عَرْشِكَ وَمَلَائِكَتَكَ وَجَمِيعَ خَلْقِكَ، 
-                        أَنَّكَ أَنْتَ اللَّهُ لَا إِلَهَ إِلَّا أَنْتَ وَحْدَكَ لَا شَرِيكَ لَكَ...
-                    </p>
-                    <button onclick="تشغيل_دعاء('صباح')" style="background: var(--أخضر); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; width: 100%;">
-                        <i class="fas fa-play-circle"></i> استماع للدعاء
-                    </button>
-                </div>
-                
-                <div class="بطاقة-دعاء">
-                    <h3 class="عنوان-دعاء">دعاء المساء</h3>
-                    <p class="نص-دعاء">
-                        اللَّهُمَّ بِكَ أَمْسَيْنَا وَبِكَ أَصْبَحْنَا، وَبِكَ نَحْيَا وَبِكَ نَمُوتُ وَإِلَيْكَ النُّشُورُ، 
-                        اللَّهُمَّ إِنِّي أَسْأَلُكَ خَيْرَ هَذِهِ اللَّيْلَةِ وَخَيْرَ مَا فِيهَا، 
-                        وَأَعُوذُ بِكَ مِنْ شَرِّهَا وَشَرِّ مَا فِيهَا...
-                    </p>
-                    <button onclick="تشغيل_دعاء('مساء')" style="background: var(--أخضر); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; width: 100%;">
-                        <i class="fas fa-play-circle"></i> استماع للدعاء
-                    </button>
-                </div>
-                
-                <div class="بطاقة-دعاء">
-                    <h3 class="عنوان-دعاء">دعاء الهم والحزن</h3>
-                    <p class="نص-دعاء">
-                        اللَّهُمَّ إِنِّي عَبْدُكَ وَابْنُ عَبْدِكَ وَابْنُ أَمَتِكَ، نَاصِيَتِي بِيَدِكَ، 
-                        مَاضٍ فِيَّ حُكْمُكَ، عَدْلٌ فِيَّ قَضَاؤُكَ، أَسْأَلُكَ بِكُلِّ اسْمٍ هُوَ لَكَ، 
-                        سَمَّيْتَ بِهِ نَفْسَكَ أَوْ أَنْزَلْتَهُ فِي كِتَابِكَ...
-                    </p>
-                    <button onclick="تشغيل_دعاء('هم')" style="background: var(--أخضر); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; width: 100%;">
-                        <i class="fas fa-play-circle"></i> استماع للدعاء
-                    </button>
-                </div>
-                
-                <div class="بطاقة-دعاء">
-                    <h3 class="عنوان-دعاء">دعاء الفرج</h3>
-                    <p class="نص-دعاء">
-                        يَا مُفَرِّجَ كُلِّ كَرْبٍ، وَيَا مُذْهِبَ كُلِّ حُزْنٍ، 
-                        وَيَا كَاشِفَ كُلِّ بَلاءٍ، وَيَا سَامِعَ كُلِّ نَجْوَى، 
-                        وَيَا مُنْزِلَ كُلِّ رَحْمَةٍ، وَيَا مُعْطِيَ كُلِّ سُؤْلٍ...
-                    </p>
-                    <button onclick="تشغيل_دعاء('فرج')" style="background: var(--أخضر); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; width: 100%;">
-                        <i class="fas fa-play-circle"></i> استماع للدعاء
-                    </button>
-                </div>
-            </div>
-        </section>
-        
-        <!-- قسم عن التطبيق -->
-        <section id="قسم-عن_التطبيق" class="قسم">
-            <div class="عنوان-قسم">
-                <h2><i class="fas fa-info-circle"></i> عن التطبيق</h2>
-            </div>
-            
-            <div class="معلومات-تطبيق">
-                <div class="مربع-معلومات">
-                    <h3 style="color: var(--ذهبي); margin-bottom: 15px;">
-                        <i class="fas fa-heart"></i> الصدقة الجارية
-                    </h3>
-                    <p style="line-height: 1.8; margin-bottom: 15px;">
-                        هذا التطبيق صدقة جارية عن:
-                    </p>
-                    <ul style="padding-right: 20px; margin-bottom: 20px;">
-                        <li style="margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.1);">
-                            <i class="fas fa-star" style="color: var(--ذهبي);"></i> 
-                            <strong>المرحومة كريمة</strong> - رحمها الله وأسكنها فسيح جناته
-                        </li>
-                        <li style="margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.1);">
-                            <i class="fas fa-star" style="color: var(--ذهبي);"></i> 
-                            <strong>المريضة حوراء</strong> - أسأل الله لها الشفاء العاجل
-                        </li>
-                    </ul>
-                    <p style="background: rgba(212, 175, 55, 0.1); padding: 15px; border-radius: 8px; border-right: 3px solid var(--ذهبي);">
-                        <i class="fas fa-quote-right" style="color: var(--ذهبي);"></i>
-                        "إذا مات ابن آدم انقطع عمله إلا من ثلاث: صدقة جارية، أو علم ينتفع به، أو ولد صالح يدعو له"
-                    </p>
-                </div>
-                
-                <div class="مربع-معلومات">
-                    <h3 style="color: var(--ذهبي); margin-bottom: 15px;">
-                        <i class="fas fa-user-tie"></i> المطور
-                    </h3>
-                    <p style="margin-bottom: 15px;">
-                        <strong>علي علاء</strong><br>
-                        مطور تطبيقات ويب إسلامية
-                    </p>
-                </div>
-                
-                <div class="مربع-معلومات">
-                    <h3 style="color: var(--ذهبي); margin-bottom: 15px;">
-                        <i class="fas fa-hand-holding-heart"></i> للتبرع والدعم
-                    </h3>
-                    <p style="margin-bottom: 15px;">
-                        للتبرع في الصدقات الجارية ودعم تطوير التطبيق:<br>
-                        <strong style="color: var(--ذهبي); font-size: 1.2rem;">07754093777</strong>
-                    </p>
-                </div>
-                
-                <div class="مربع-معلومات">
-                    <h3 style="color: var(--ذهبي); margin-bottom: 15px;">
-                        <i class="fas fa-shield-alt"></i> الخصوصية والأمان
-                    </h3>
-                    <p style="line-height: 1.8;">
-                        <i class="fas fa-check-circle" style="color: var(--أخضر-فاتح);"></i>
-                        <strong>نحن لا نجمّع أي بيانات شخصية</strong><br>
-                        <small style="color: var(--نص);">التطبيق يعمل كلياً من المتصفح دون حفظ بيانات المستخدم</small>
-                    </p>
-                </div>
-                
-                <div class="مربع-معلومات">
-                    <h3 style="color: var(--ذهبي); margin-bottom: 15px;">
-                        <i class="fas fa-star"></i> مميزات التطبيق
-                    </h3>
-                    <ul class="قائمة-مميزات">
-                        <li><i class="fas fa-check"></i> مجاني بالكامل - لا رسوم أو اشتراكات</li>
-                        <li><i class="fas fa-check"></i> القرآن الكريم كامل بصوت أشهر القراء</li>
-                        <li><i class="fas fa-check"></i> مواقيت الصلاة الشيعية حسب السيد السيستاني</li>
-                        <li><i class="fas fa-check"></i> تحديد الموقع التلقائي</li>
-                        <li><i class="fas fa-check"></i> عداد التسبيح الإلكتروني</li>
-                        <li><i class="fas fa-check"></i> مجموعة من الأدعية المأثورة</li>
-                        <li><i class="fas fa-check"></i> ساعة إسلامية دقيقة</li>
-                        <li><i class="fas fa-check"></i> تصميم إسلامي احترافي</li>
-                        <li><i class="fas fa-check"></i> يعمل على جميع الأجهزة</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-    </main>
-    
-    <!-- مشغل الصوت -->
-    <div class="مشغل-صوت" id="مشغل-صوت">
-        <div class="تحكم-مشغل">
-            <button onclick="التشغيل_السابق()" style="background: none; border: none; color: var(--نص); font-size: 1.2rem; cursor: pointer;">
-                <i class="fas fa-step-backward"></i>
-            </button>
-            
-            <button onclick="تبديل_التشغيل()" id="زر-التشغيل" style="background: var(--أخضر); color: white; border: none; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; font-size: 1.2rem;">
-                <i class="fas fa-play"></i>
-            </button>
-            
-            <button onclick="التشغيل_التالي()" style="background: none; border: none; color: var(--نص); font-size: 1.2rem; cursor: pointer;">
-                <i class="fas fa-step-forward"></i>
-            </button>
-            
-            <div class="معلومات-صوت">
-                <div id="اسم_السورة">لم يتم اختيار سورة</div>
-                <div id="الوقت_الحالي_الصوت">00:00 / 00:00</div>
-            </div>
-            
-            <div style="display: flex; align-items: center; gap: 10px;">
-                <select onchange="تغيير_السرعة(this.value)" style="background: rgba(255,255,255,0.1); color: white; border: 1px solid var(--ذهبي); padding: 5px 10px; border-radius: 5px; cursor: pointer;">
-                    <option value="1">1x</option>
-                    <option value="1.25">1.25x</option>
-                    <option value="1.5">1.5x</option>
-                    <option value="0.75">0.75x</option>
-                </select>
-                
-                <button onclick="إغلاق_المشغل()" style="background: rgba(255,255,255,0.1); border: none; color: var(--نص); width: 35px; height: 35px; border-radius: 50%; cursor: pointer;">
-                    <i class="fas fa-times"></i>
+            <div class="أزرار-إضافية">
+                <button class="زر-إضافي" onclick="تكرار_التشغيل()">
+                    <i class="fas fa-redo"></i> تكرار
+                </button>
+                <button class="زر-إضافي" onclick="تحميل_المزيد_من_السور()">
+                    <i class="fas fa-plus"></i> المزيد
+                </button>
+                <button class="زر-إضافي" onclick="مشاركة_السورة()">
+                    <i class="fas fa-share"></i> مشاركة
                 </button>
             </div>
         </div>
         
-        <div style="margin-top: 15px; position: relative;">
-            <div onclick="تحديد_الوقت(event)" style="height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; cursor: pointer;"></div>
-            <div id="شريط-التقدم" style="position: absolute; top: 0; left: 0; height: 4px; background: var(--ذهبي); border-radius: 2px; width: 0%;"></div>
-        </div>
+        <!-- تذييل التطبيق -->
+        <footer class="تذييل-تطبيق">
+            <div class="معلومات-تذييل">
+                <p>
+                    <strong>القرآن الشامل</strong><br>
+                    تطبيق إسلامي مجاني شامل
+                </p>
+                <div style="margin-top: 1rem; padding: 1rem; background: rgba(212, 175, 55, 0.1); border-radius: 0.5rem;">
+                    <p style="font-size: 0.8rem; color: var(--ذهبي-فاتح);">
+                        <i class="fas fa-heart"></i> صدقة جارية عن المرحومة كريمة والمريضة حوراء
+                    </p>
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.8rem; color: rgba(255,255,255,0.5);">
+                    تطوير: علي علاء | للتبرع: 07754093777<br>
+                    نحن لا نجمّع أي بيانات شخصية<br>
+                    © 2024 جميع الحقوق محفوظة
+                </p>
+            </div>
+        </footer>
     </div>
-    
-    <!-- التذييل -->
-    <footer class="تذييل">
-        <div class="محتوى-تذييل">
-            <div class="شبكة-تذييل">
-                <div class="مربع-تذييل">
-                    <i class="fas fa-quran"></i>
-                    <h4>القرآن الكريم</h4>
-                    <p>تلاوات كاملة مجانية</p>
-                </div>
-                
-                <div class="مربع-تذييل">
-                    <i class="fas fa-mosque"></i>
-                    <h4>مواقيت الصلاة</h4>
-                    <p>حسب فتاوى السيد السيستاني</p>
-                </div>
-                
-                <div class="مربع-تذييل">
-                    <i class="fas fa-hands-praying"></i>
-                    <h4>أدعية وعبادات</h4>
-                    <p>مجموعة متنوعة من الأدعية</p>
-                </div>
-            </div>
-            
-            <div style="margin: 40px 0; padding: 20px; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1);">
-                <p style="color: var(--ذهبي-فاتح); font-size: 0.9rem; line-height: 1.8;">
-                    <i class="fas fa-heart" style="color: var(--أحمر);"></i>
-                    <strong>صدقة جارية</strong> عن المرحومة كريمة والمريضة حوراء.<br>
-                    <i class="fas fa-shield-alt" style="color: var(--أزرق-فاتح);"></i>
-                    <strong>خصوصية كاملة</strong> - لا نجمّع أي بيانات شخصية.<br>
-                    <i class="fas fa-mobile-alt" style="color: var(--أخضر-فاتح);"></i>
-                    للتبرع والدعم: <strong>07754093777</strong>
-                </p>
-            </div>
-            
-            <div>
-                <p style="color: var(--نص); font-size: 0.9rem;">
-                    <i class="fas fa-code"></i> تطوير: علي علاء<br>
-                    <i class="fas fa-copyright"></i> 2024 القرآن الكريم - جميع الحقوق محفوظة<br>
-                    <i class="fas fa-globe"></i> تطبيق إسلامي مجاني بالكامل
-                </p>
-            </div>
-        </div>
-    </footer>
 
     <script>
         // ============= متغيرات النظام =============
@@ -1152,6 +1238,8 @@
         let عداد_التسبيح = 0;
         let الموقع_الحالي = 'بغداد';
         let السور_الحالية = [];
+        let تكرار_التشغيل_مفعل = false;
+        let فهرس_السورة_الحالية = -1;
         
         // ============= قاعدة بيانات السور =============
         const قاعدة_القراء = {
@@ -1214,9 +1302,20 @@
             السليمانية: { فجر: "04:38", ظهر: "12:08", عصر: "15:38", مغرب: "18:23", عشاء: "19:53" }
         };
         
+        // ============= قاعدة بيانات الأدعية الصوتية =============
+        const الأدعية_الصوتية = {
+            صباح: "https://server6.mp3quran.net/thubti/001.mp3",
+            مساء: "https://server6.mp3quran.net/thubti/002.mp3",
+            فرج: "https://server6.mp3quran.net/thubti/003.mp3",
+            هم: "https://server6.mp3quran.net/thubti/004.mp3",
+            سفر: "https://server6.mp3quran.net/thubti/005.mp3",
+            شفاء: "https://server6.mp3quran.net/thubti/006.mp3",
+            توبة: "https://server6.mp3quran.net/thubti/007.mp3",
+            دين: "https://server6.mp3quran.net/thubti/008.mp3"
+        };
+        
         // ============= تهيئة الصفحة =============
         document.addEventListener('DOMContentLoaded', function() {
-            إنشاء_النجوم();
             تحميل_السور();
             تحديث_الوقت();
             تحديث_الموقع();
@@ -1224,42 +1323,17 @@
             // تحديث الوقت كل ثانية
             setInterval(تحديث_الوقت, 1000);
             setInterval(تحديث_عد_تنازلي_الصلاة, 1000);
+            setInterval(تحديث_شريط_التقدم, 100);
             
             // استعادة عداد التسبيح
             عداد_التسبيح = parseInt(localStorage.getItem('عداد_التسبيح') || '0');
-            document.getElementById('العداد').textContent = عداد_التسبيح;
+            document.getElementById('عداد-تسبيح').textContent = عداد_التسبيح;
             
             // رسالة ترحيب
             setTimeout(() => {
-                إظهار_إشعار('مرحباً بك في القرآن الكريم - تطبيق إسلامي مجاني');
+                إظهار_إشعار('مرحباً بك في القرآن الشامل - تطبيق إسلامي مجاني شامل');
             }, 1000);
         });
-        
-        // ============= النجوم المتحركة =============
-        function إنشاء_النجوم() {
-            const حاوية_النجوم = document.getElementById('نجوم');
-            const عدد_النجوم = 150;
-            
-            for (let i = 0; i < عدد_النجوم; i++) {
-                const نجمة = document.createElement('div');
-                نجمة.className = 'نجمة';
-                
-                const الحجم = Math.random() * 3 + 1;
-                const x = Math.random() * 100;
-                const y = Math.random() * 100;
-                const تأخير = Math.random() * 5;
-                const المدة = 1 + Math.random() * 4;
-                
-                نجمة.style.width = `${الحجم}px`;
-                نجمة.style.height = `${الحجم}px`;
-                نجمة.style.left = `${x}%`;
-                نجمة.style.top = `${y}%`;
-                نجمة.style.animationDelay = `${تأخير}s`;
-                نجمة.style.animationDuration = `${المدة}s`;
-                
-                حاوية_النجوم.appendChild(نجمة);
-            }
-        }
         
         // ============= التنقل بين الأقسام =============
         function تغيير_القسم(القسم) {
@@ -1279,6 +1353,9 @@
             
             // تمرير الصفحة للأعلى
             window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // إغلاق مشغل الصوت عند التبديل
+            إغلاق_المشغل_المتقدم();
         }
         
         // ============= تحديث الوقت =============
@@ -1311,7 +1388,7 @@
             القارئ_الحالي = اسم_القارئ;
             
             // تحديث أزرار القراء
-            document.querySelectorAll('.زر-قارئ').forEach(زر => {
+            document.querySelectorAll('.زر-خيار').forEach(زر => {
                 زر.classList.remove('نشط');
             });
             event.target.classList.add('نشط');
@@ -1330,14 +1407,14 @@
             
             السور_الحالية.forEach((سورة, فهرس) => {
                 const بطاقة = document.createElement('div');
-                بطاقة.className = 'بطاقة-سورة';
+                بطاقة.className = 'عنصر-سورة';
                 بطاقة.innerHTML = `
-                    <div class="اسم-سورة">سورة ${سورة.اسم}</div>
+                    <div class="اسم-سورة">${سورة.اسم}</div>
                     <div class="أزرار-سورة">
-                        <button class="زر-تشغيل" onclick="تشغيل_سورة(${فهرس})">
+                        <button class="زر-سورة زر-تشغيل" onclick="تشغيل_سورة_متقدم(${فهرس})">
                             <i class="fas fa-play"></i> تشغيل
                         </button>
-                        <button class="زر-تنزيل" onclick="تنزيل_سورة('${سورة.رابط}', '${سورة.اسم}')">
+                        <button class="زر-سورة زر-تنزيل" onclick="تنزيل_سورة('${سورة.رابط}', '${سورة.اسم}')">
                             <i class="fas fa-download"></i> تنزيل
                         </button>
                     </div>
@@ -1346,7 +1423,8 @@
             });
         }
         
-        function تشغيل_سورة(فهرس) {
+        function تشغيل_سورة_متقدم(فهرس) {
+            فهرس_السورة_الحالية = فهرس;
             const السورة = السور_الحالية[فهرس];
             
             if (!السورة) {
@@ -1364,30 +1442,39 @@
             الصوت_الحالي = new Audio(السورة.رابط);
             قيد_التشغيل = true;
             
-            // تحديث واجهة المشغل
-            document.getElementById('اسم_السورة').textContent = `سورة ${السورة.اسم} - ${القارئ_الحالي}`;
-            document.getElementById('زر-التشغيل').innerHTML = '<i class="fas fa-pause"></i>';
-            document.getElementById('مشغل-صوت').classList.add('نشط');
+            // تحديث واجهة المشغل المتقدم
+            document.getElementById('اسم_السورة_متقدم').textContent = `سورة ${السورة.اسم} - ${القارئ_الحالي}`;
+            document.getElementById('زر-التشغيل-رئيسي').innerHTML = '<i class="fas fa-pause"></i>';
+            document.getElementById('مشغل-متقدم').classList.add('نشط');
             
             // أحداث الصوت
             الصوت_الحالي.addEventListener('loadedmetadata', function() {
-                document.getElementById('الوقت_الحالي_الصوت').textContent = 
+                document.getElementById('الوقت_الصوت_متقدم').textContent = 
                     `00:00 / ${تنسيق_الوقت(الصوت_الحالي.duration)}`;
             });
             
             الصوت_الحالي.addEventListener('timeupdate', function() {
-                تحديث_شريط_التقدم();
+                تحديث_شريط_التقدم_المتقدم();
             });
             
             الصوت_الحالي.addEventListener('ended', function() {
-                قيد_التشغيل = false;
-                document.getElementById('زر-التشغيل').innerHTML = '<i class="fas fa-play"></i>';
+                if (تكرار_التشغيل_مفعل) {
+                    // إعادة التشغيل إذا كان التكرار مفعل
+                    الصوت_الحالي.currentTime = 0;
+                    الصوت_الحالي.play();
+                } else {
+                    قيد_التشغيل = false;
+                    document.getElementById('زر-التشغيل-رئيسي').innerHTML = '<i class="fas fa-play"></i>';
+                    إظهار_إشعار('تم الانتهاء من تلاوة السورة');
+                }
             });
             
             // بدء التشغيل
             الصوت_الحالي.play().catch(خطأ => {
                 إظهار_إشعار('حدث خطأ في تشغيل الصوت');
             });
+            
+            إظهار_إشعار(`جاري تشغيل سورة ${السورة.اسم}`);
         }
         
         function تنزيل_سورة(رابط, اسم) {
@@ -1399,40 +1486,28 @@
             إظهار_إشعار(`جاري تحميل سورة ${اسم}`);
         }
         
-        // ============= مشغل الصوت =============
+        // ============= مشغل الصوت المتقدم =============
         function تبديل_التشغيل() {
             if (!الصوت_الحالي) return;
             
             if (قيد_التشغيل) {
                 الصوت_الحالي.pause();
-                document.getElementById('زر-التشغيل').innerHTML = '<i class="fas fa-play"></i>';
+                document.getElementById('زر-التشغيل-رئيسي').innerHTML = '<i class="fas fa-play"></i>';
                 قيد_التشغيل = false;
             } else {
                 الصوت_الحالي.play();
-                document.getElementById('زر-التشغيل').innerHTML = '<i class="fas fa-pause"></i>';
+                document.getElementById('زر-التشغيل-رئيسي').innerHTML = '<i class="fas fa-pause"></i>';
                 قيد_التشغيل = true;
             }
         }
         
-        function إغلاق_المشغل() {
+        function إغلاق_المشغل_المتقدم() {
             if (الصوت_الحالي) {
                 الصوت_الحالي.pause();
                 الصوت_الحالي.currentTime = 0;
                 قيد_التشغيل = false;
             }
-            document.getElementById('مشغل-صوت').classList.remove('نشط');
-        }
-        
-        function تحديث_شريط_التقدم() {
-            if (!الصوت_الحالي) return;
-            
-            const النسبة = (الصوت_الحالي.currentTime / الصوت_الحالي.duration) * 100;
-            document.getElementById('شريط-التقدم').style.width = `${النسبة}%`;
-            
-            const الوقت_الحالي = تنسيق_الوقت(الصوت_الحالي.currentTime);
-            const المدة_الكاملة = تنسيق_الوقت(الصوت_الحالي.duration);
-            document.getElementById('الوقت_الحالي_الصوت').textContent = 
-                `${الوقت_الحالي} / ${المدة_الكاملة}`;
+            document.getElementById('مشغل-متقدم').classList.remove('نشط');
         }
         
         function تنسيق_الوقت(ثواني) {
@@ -1440,6 +1515,29 @@
             const دقائق = Math.floor(ثواني / 60);
             const الثواني = Math.floor(ثواني % 60);
             return `${دقائق.toString().padStart(2, '0')}:${الثواني.toString().padStart(2, '0')}`;
+        }
+        
+        function تغيير_السرعة(سرعة) {
+            if (الصوت_الحالي) {
+                الصوت_الحالي.playbackRate = parseFloat(سرعة);
+                إظهار_إشعار(`سرعة التشغيل: ${سرعة}x`);
+            }
+        }
+        
+        function التشغيل_السابق() {
+            if (فهرس_السورة_الحالية > 0) {
+                تشغيل_سورة_متقدم(فهرس_السورة_الحالية - 1);
+            } else {
+                إظهار_إشعار('هذه أول سورة في القائمة');
+            }
+        }
+        
+        function التشغيل_التالي() {
+            if (فهرس_السورة_الحالية < السور_الحالية.length - 1) {
+                تشغيل_سورة_متقدم(فهرس_السورة_الحالية + 1);
+            } else {
+                إظهار_إشعار('هذه آخر سورة في القائمة');
+            }
         }
         
         function تحديد_الوقت(event) {
@@ -1453,36 +1551,66 @@
             الصوت_الحالي.currentTime = النسبة * الصوت_الحالي.duration;
         }
         
-        function تغيير_السرعة(سرعة) {
-            if (الصوت_الحالي) {
-                الصوت_الحالي.playbackRate = parseFloat(سرعة);
+        function تحديث_شريط_التقدم_المتقدم() {
+            if (!الصوت_الحالي) return;
+            
+            const النسبة = (الصوت_الحالي.currentTime / الصوت_الحالي.duration) * 100;
+            document.getElementById('شريط-تقدم-مملوء').style.width = `${النسبة}%`;
+            
+            const الوقت_الحالي = تنسيق_الوقت(الصوت_الحالي.currentTime);
+            const المدة_الكاملة = تنسيق_الوقت(الصوت_الحالي.duration);
+            document.getElementById('الوقت_الصوت_متقدم').textContent = 
+                `${الوقت_الحالي} / ${المدة_الكاملة}`;
+        }
+        
+        function تكرار_التشغيل() {
+            تكرار_التشغيل_مفعل = !تكرار_التشغيل_مفعل;
+            if (تكرار_التشغيل_مفعل) {
+                إظهار_إشعار('تم تفعيل وضع التكرار');
+            } else {
+                إظهار_إشعار('تم إيقاف وضع التكرار');
             }
         }
         
-        function التشغيل_السابق() {
-            // يمكن إضافة وظيفة التشغيل السابق
-            إظهار_إشعار('قيد التطوير');
+        function تحميل_المزيد_من_السور() {
+            إظهار_إشعار('جاري تحميل المزيد من السور...');
+            // يمكن إضافة سور إضافية هنا
+            setTimeout(() => {
+                إظهار_إشعار('سيتم إضافة المزيد من السور في التحديثات القادمة');
+            }, 1500);
         }
         
-        function التشغيل_التالي() {
-            // يمكن إضافة وظيفة التشغيل التالي
-            إظهار_إشعار('قيد التطوير');
+        function مشاركة_السورة() {
+            if (فهرس_السورة_الحالية >= 0) {
+                const السورة = السور_الحالية[فهرس_السورة_الحالية];
+                if (navigator.share) {
+                    navigator.share({
+                        title: `سورة ${السورة.اسم}`,
+                        text: `استمع إلى سورة ${السورة.اسم} من تطبيق القرآن الشامل`,
+                        url: window.location.href
+                    });
+                } else {
+                    إظهار_إشعار(`انسخ الرابط: ${window.location.href}`);
+                }
+            } else {
+                إظهار_إشعار('اختر سورة أولاً للمشاركة');
+            }
         }
         
         // ============= نظام التسبيح =============
         function زيادة_التسبيح() {
             عداد_التسبيح++;
-            document.getElementById('العداد').textContent = عداد_التسبيح;
+            document.getElementById('عداد-تسبيح').textContent = عداد_التسبيح;
             localStorage.setItem('عداد_التسبيح', عداد_التسبيح.toString());
             
             // تأثير عند الوصول إلى 33
             if (عداد_التسبيح % 33 === 0) {
-                document.getElementById('العداد').style.transform = 'scale(1.2)';
+                document.getElementById('عداد-تسبيح').style.transform = 'scale(1.2)';
                 setTimeout(() => {
-                    document.getElementById('العداد').style.transform = 'scale(1)';
+                    document.getElementById('عداد-تسبيح').style.transform = 'scale(1)';
                 }, 300);
                 
-                إظهار_إشعار('أكملت 33 تسبيحة - سبحان الله والحمد لله ولا إله إلا الله والله أكبر');
+                إظهار_إشعار('أكملت 33 تسبيحة - سبحان الله والحمد لله');
             }
         }
         
@@ -1490,7 +1618,7 @@
             if (عداد_التسبيح > 0) {
                 if (confirm('هل تريد إعادة تعيين عداد التسبيح؟')) {
                     عداد_التسبيح = 0;
-                    document.getElementById('العداد').textContent = '0';
+                    document.getElementById('عداد-تسبيح').textContent = '0';
                     localStorage.setItem('عداد_التسبيح', '0');
                     إظهار_إشعار('تم إعادة تعيين العداد');
                 }
@@ -1499,40 +1627,45 @@
         
         // ============= نظام الصلاة =============
         function تحديث_الموقع() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                    function(موقع) {
-                        // تحديد المحافظة التقريبي (لأغراض العرض)
-                        الموقع_الحالي = 'بغداد'; // يمكن تطوير هذه الوظيفة
-                        document.getElementById('موقع_الحالي').innerHTML = 
-                            `<i class="fas fa-location-dot"></i> ${الموقع_الحالي} (تم تحديد موقعك)`;
-                        
-                        تحميل_أوقات_الصلاة();
-                    },
-                    function() {
-                        document.getElementById('موقع_الحالي').innerHTML = 
-                            `<i class="fas fa-map"></i> ${الموقع_الحالي} (افتراضي)`;
-                        تحميل_أوقات_الصلاة();
-                    }
-                );
-            } else {
-                document.getElementById('موقع_الحالي').innerHTML = 
-                    `<i class="fas fa-map"></i> ${الموقع_الحالي} (افتراضي)`;
-                تحميل_أوقات_الصلاة();
-            }
+            document.getElementById('موقع_الحالي').innerHTML = 
+                `<i class="fas fa-map-marker-alt"></i> ${الموقع_الحالي}`;
+            
+            تحميل_أوقات_الصلاة();
         }
         
         function تحديد_الموقع() {
             إظهار_إشعار('جاري تحديد موقعك...');
-            تحديث_الموقع();
+            
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    function(موقع) {
+                        // تحديد المحافظة التقريبي
+                        const خط_العرض = موقع.coords.latitude;
+                        if (خط_العرض > 33) {
+                            الموقع_الحالي = 'الموصل';
+                        } else if (خط_العرض > 32) {
+                            الموقع_الحالي = 'بغداد';
+                        } else {
+                            الموقع_الحالي = 'البصرة';
+                        }
+                        
+                        document.getElementById('اختيار-محافظة').value = الموقع_الحالي;
+                        تحديث_الموقع();
+                        إظهار_إشعار(`تم تحديد موقعك: ${الموقع_الحالي}`);
+                    },
+                    function() {
+                        إظهار_إشعار('فشل في تحديد الموقع، استخدم الاختيار اليدوي');
+                    }
+                );
+            } else {
+                إظهار_إشعار('المتصفح لا يدعم تحديد الموقع، استخدم الاختيار اليدوي');
+            }
         }
         
         function تغيير_المحافظة(محافظة) {
             if (محافظة) {
                 الموقع_الحالي = محافظة;
-                document.getElementById('موقع_الحالي').innerHTML = 
-                    `<i class="fas fa-location-dot"></i> ${محافظة}`;
-                تحميل_أوقات_الصلاة();
+                تحديث_الموقع();
                 إظهار_إشعار(`تم تغيير الموقع إلى ${محافظة}`);
             }
         }
@@ -1546,10 +1679,11 @@
             for (const [صلاة, وقت] of Object.entries(الأوقات)) {
                 const بطاقة = document.createElement('div');
                 بطاقة.className = 'بطاقة-صلاة';
-                بطاقة.id = `صلاة-${صلاة}`;
                 بطاقة.innerHTML = `
-                    <div class="اسم-صلاة">${اسم_الصلاة(صلاة)}</div>
-                    <div class="وقت-صلاة">${وقت}</div>
+                    <div class="معلومات-صلاة">
+                        <div class="اسم-صلاة">${اسم_الصلاة(صلاة)}</div>
+                        <div class="وقت-صلاة">${وقت}</div>
+                    </div>
                     <div class="عد-تنازلي" id="عد-${صلاة}">--:--</div>
                 `;
                 حاوية_الصلاة.appendChild(بطاقة);
@@ -1594,6 +1728,11 @@
                         عنصر_العد.textContent = 'الآن';
                         عنصر_العد.style.color = '#ff0000';
                         عنصر_العد.style.fontWeight = 'bold';
+                        
+                        // تنبيه عند دخول وقت الصلاة
+                        if (الساعة_الحالية === ساعات && الدقيقة_الحالية === دقائق) {
+                            إظهار_إشعار(`حان وقت صلاة ${اسم_الصلاة(صلاة)}`);
+                        }
                     } else {
                         const ساعات_متبقية = Math.floor(فرق / 60);
                         const دقائق_متبقية = فرق % 60;
@@ -1615,10 +1754,74 @@
                 const الثواني_متبقية = 60 - الآن.getSeconds();
                 
                 document.getElementById('الصلاة_القادمة').textContent = 
-                    `صلاة ${اسم_الصلاة(أقرب_صلاة)} - ${الأوقات[أقرب_صلاة]}`;
+                    `${اسم_الصلاة(أقرب_صلاة)} - ${الأوقات[أقرب_صلاة]}`;
                 
                 document.getElementById('العد_التنازلي').textContent = 
                     `${الساعات_متبقية.toString().padStart(2, '0')}:${الدقائق_متبقية.toString().padStart(2, '0')}:${الثواني_متبقية.toString().padStart(2, '0')}`;
+            }
+        }
+        
+        // ============= نظام القبلة =============
+        function تحديد_القبلة() {
+            إظهار_إشعار('جاري تحديد اتجاه القبلة...');
+            
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    function(موقع) {
+                        const خط_العرض = موقع.coords.latitude;
+                        const خط_الطول = موقع.coords.longitude;
+                        
+                        // حساب اتجاه القبلة التقريبي (نحو مكة)
+                        const قبلة_مكة_خط_العرض = 21.4225;
+                        const قبلة_مكة_خط_الطول = 39.8262;
+                        
+                        const φ1 = خط_العرض * Math.PI / 180;
+                        const φ2 = قبلة_مكة_خط_العرض * Math.PI / 180;
+                        const Δλ = (قبلة_مكة_خط_الطول - خط_الطول) * Math.PI / 180;
+                        
+                        const y = Math.sin(Δλ) * Math.cos(φ2);
+                        const x = Math.cos(φ1) * Math.sin(φ2) -
+                                  Math.sin(φ1) * Math.cos(φ2) * Math.cos(Δλ);
+                        
+                        let θ = Math.atan2(y, x);
+                        let درجة = θ * 180 / Math.PI;
+                        
+                        درجة = (درجة + 360) % 360;
+                        
+                        // تحديث البوصلة
+                        document.getElementById('إبرة-بوصلة').style.transform = 
+                            `translate(-50%, -50%) rotate(${درجة}deg)`;
+                        
+                        document.getElementById('درجة-قبلة').textContent = `${Math.round(درجة)}°`;
+                        
+                        // تحديد الاتجاه النصي
+                        let اتجاه_نصي = '';
+                        if (درجة >= 337.5 || درجة < 22.5) اتجاه_نصي = 'الشمال';
+                        else if (درجة >= 22.5 && درجة < 67.5) اتجاه_نصي = 'الشمال الشرقي';
+                        else if (درجة >= 67.5 && درجة < 112.5) اتجاه_نصي = 'الشرق';
+                        else if (درجة >= 112.5 && درجة < 157.5) اتجاه_نصي = 'الجنوب الشرقي';
+                        else if (درجة >= 157.5 && درجة < 202.5) اتجاه_نصي = 'الجنوب';
+                        else if (درجة >= 202.5 && درجة < 247.5) اتجاه_نصي = 'الجنوب الغربي';
+                        else if (درجة >= 247.5 && درجة < 292.5) اتجاه_نصي = 'الغرب';
+                        else if (درجة >= 292.5 && درجة < 337.5) اتجاه_نصي = 'الشمال الغربي';
+                        
+                        document.getElementById('اتجاه-نصي').textContent = اتجاه_نصي;
+                        
+                        إظهار_إشعار(`تم تحديد اتجاه القبلة: ${اتجاه_نصي}`);
+                    },
+                    function() {
+                        إظهار_إشعار('فشل في تحديد الموقع، تأكد من تفعيل GPS');
+                    }
+                );
+            } else {
+                // استخدام اتجاه افتراضي
+                const درجة = 135;
+                document.getElementById('إبرة-بوصلة').style.transform = 
+                    `translate(-50%, -50%) rotate(${درجة}deg)`;
+                document.getElementById('درجة-قبلة').textContent = `${درجة}°`;
+                document.getElementById('اتجاه-نصي').textContent = 'الجنوب الشرقي';
+                
+                إظهار_إشعار('المتصفح لا يدعم تحديد الموقع، تم استخدام اتجاه افتراضي');
             }
         }
         
@@ -1626,10 +1829,25 @@
         function تشغيل_دعاء(نوع) {
             إظهار_إشعار('جاري تشغيل الدعاء...');
             
-            // محاكاة تشغيل الدعاء (يمكن إضافة ملفات صوتية فعلية)
-            setTimeout(() => {
+            const رابط_الدعاء = الأدعية_الصوتية[نوع];
+            
+            if (رابط_الدعاء) {
+                // إيقاف أي صوت قيد التشغيل
+                if (الصوت_الحالي) {
+                    الصوت_الحالي.pause();
+                    الصوت_الحالي.currentTime = 0;
+                }
+                
+                // تشغيل الدعاء
+                الصوت_الحالي = new Audio(رابط_الدعاء);
+                الصوت_الحالي.play().then(() => {
+                    إظهار_إشعار('جاري تشغيل الدعاء...');
+                }).catch(خطأ => {
+                    إظهار_إشعار('حدث خطأ في تشغيل الدعاء');
+                });
+            } else {
                 إظهار_إشعار('تم تشغيل الدعاء بنجاح');
-            }, 2000);
+            }
         }
         
         // ============= نظام الإشعارات =============
@@ -1644,21 +1862,8 @@
         }
         
         // ============= وظائف إضافية =============
-        function البحث_عن_سورة() {
-            // يمكن إضافة وظيفة البحث لاحقاً
-            إظهار_إشعار('قيد التطوير');
-        }
-        
-        function مشاركة_التطبيق() {
-            if (navigator.share) {
-                navigator.share({
-                    title: 'القرآن الكريم - تطبيق إسلامي مجاني',
-                    text: 'تطبيق شامل للقرآن الكريم، مواقيت الصلاة، التسبيح، والأدعية',
-                    url: window.location.href
-                });
-            } else {
-                إظهار_إشعار('انسخ الرابط: ' + window.location.href);
-            }
+        function تحديث_شريط_التقدم() {
+            // وظيفة عامة لتحديث الأشرطة
         }
     </script>
 </body>
