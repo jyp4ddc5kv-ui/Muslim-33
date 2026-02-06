@@ -1,7 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://jyp4ddc5kv-ui.github.io/Sksmsmms/</loc>
-    <lastmod>2024-02-04</lastmod>
-  </url>
+    
+    <!-- الصفحة الرئيسية -->
+    <url>
+        <loc>https://jyp4ddc5kv-ui.github.io/Sksmsmms/</loc>
+        <lastmod>2024-01-30</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- أقسام الموقع -->
+    <url>
+        <loc>https://jyp4ddc5kv-ui.github.io/Sksmsmms/#surah</loc>
+        <lastmod>2024-01-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://jyp4ddc5kv-ui.github.io/Sksmsmms/#prayer</loc>
+        <lastmod>2024-01-30</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://jyp4ddc5kv-ui.github.io/Sksmsmms/#ramadan</loc>
+        <lastmod>2024-01-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://jyp4ddc5kv-ui.github.io/Sksmsmms/#tasbeeh</loc>
+        <lastmod>2024-01-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://jyp4ddc5kv-ui.github.io/Sksmsmms/#dua</loc>
+        <lastmod>2024-01-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://jyp4ddc5kv-ui.github.io/Sksmsmms/#membership</loc>
+        <lastmod>2024-01-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <url>
+        <loc>https://jyp4ddc5kv-ui.github.io/Sksmsmms/#admin</loc>
+        <lastmod>2024-01-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>https://jyp4ddc5kv-ui.github.io/Sksmsmms/#about</loc>
+        <lastmod>2024-01-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.4</priority>
+    </url>
+    
 </urlset>
