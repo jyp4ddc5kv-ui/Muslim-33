@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>القرآن الشامل - تطبيق إسلامي شامل</title>
-    <meta name="description" content="القرآن الشامل - تطبيق إسلامي مجاني شامل: القرآن الكريم، مواقيت الصلاة، اتجاه القبلة، التسبيح، الأدعية">
-    <meta name="keywords" content="القرآن الشامل, قرآن كريم, مواقيت صلاة, اتجاه القبلة, تسبيح, أدعية, تطبيق إسلامي">
+    <meta name="description" content="القرآن الشامل - تطبيق إسلامي مجاني شامل: القرآن الكريم، مواقيت الصلاة، اتجاه القبلة، التسبيح، الأدعية، الإمساكية">
+    <meta name="keywords" content="القرآن الشامل, قرآن كريم, مواقيت صلاة, اتجاه القبلة, تسبيح, أدعية, إمساكية, تطبيق إسلامي">
     <meta name="author" content="علي علاء">
     
     <!-- كود تحقق Google -->
@@ -623,6 +623,130 @@
             to { top: 20px; opacity: 1; }
         }
 
+        /* قسم الإمساكية */
+        .حاوية-إمساكية {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .صورة-إمساكية {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin: 1rem 0;
+        }
+
+        .زر-تحميل {
+            background: linear-gradient(135deg, var(--أخضر), #1b5e20);
+            color: white;
+            border: none;
+            padding: 0.85rem 1.75rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin: 1rem auto;
+            transition: all 0.3s ease;
+        }
+
+        .زر-تحميل:hover {
+            transform: translateY(-5px);
+        }
+
+        /* قسم القرآن النصي */
+        .قارئ-قرآن {
+            background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .تحكم-قارئ {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .محتوى-قرآن {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            max-height: 500px;
+            overflow-y: auto;
+            text-align: justify;
+            font-family: 'Amiri', serif;
+            font-size: 1.4rem;
+            line-height: 2.5;
+            color: var(--ذهبي-فاتح);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        /* حماية التطبيق */
+        .حماية-تطبيق {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 31, 20, 0.95);
+            z-index: 10000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .حماية-تطبيق.نشط {
+            display: flex;
+        }
+
+        .نافذة-حماية {
+            background: linear-gradient(135deg, var(--أخضر-داكن), var(--أخضر));
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            max-width: 400px;
+            border: 3px solid var(--ذهبي);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .نافذة-حماية h2 {
+            color: var(--ذهبي);
+            margin-bottom: 1.5rem;
+        }
+
+        .نافذة-حماية p {
+            margin-bottom: 2rem;
+            color: var(--أبيض);
+        }
+
+        .نافذة-حماية button {
+            background: linear-gradient(135deg, var(--ذهبي), #c19b2a);
+            color: var(--أسود);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .نافذة-حماية button:hover {
+            transform: translateY(-5px);
+        }
+
         /* تجاوب للهواتف */
         @media (max-width: 768px) {
             .تنقل-تطبيق {
@@ -647,6 +771,12 @@
                 grid-template-columns: repeat(2, 1fr);
                 gap: 1rem;
             }
+            
+            .محتوى-قرآن {
+                font-size: 1.2rem;
+                padding: 1rem;
+                max-height: 400px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -661,10 +791,27 @@
             .قائمة-سور {
                 grid-template-columns: 1fr;
             }
+            
+            .محتوى-قرآن {
+                font-size: 1rem;
+                line-height: 2;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- حماية التطبيق -->
+    <div class="حماية-تطبيق" id="حماية-تطبيق">
+        <div class="نافذة-حماية">
+            <h2><i class="fas fa-shield-alt"></i> حماية التطبيق</h2>
+            <p>هذا التطبيق تم تطويره لخدمة القرآن الكريم والسنة النبوية المطهرة.</p>
+            <p>يجب استخدامه للأغراض الدينية فقط وعدم التعديل عليه دون إذن.</p>
+            <button onclick="إغلاق_الحماية()">
+                <i class="fas fa-check"></i> أوافق وأدخل إلى التطبيق
+            </button>
+        </div>
+    </div>
+    
     <!-- زر الانتقال للأعلى -->
     <button class="زر-لأعلى" id="زر-لأعلى" onclick="الانتقال_للأعلى()">
         <i class="fas fa-arrow-up"></i>
@@ -709,6 +856,10 @@
             <button class="زر-تنقل" onclick="تغيير_القسم('الأدعية')">
                 <i class="fas fa-hands-praying"></i>
                 <span>أدعية</span>
+            </button>
+            <button class="زر-تنقل" onclick="تغيير_القسم('الإمساكية')">
+                <i class="fas fa-calendar-alt"></i>
+                <span>الإمساكية</span>
             </button>
             <button class="زر-تنقل" onclick="تغيير_القسم('القرآن-النصي')">
                 <i class="fas fa-book-open"></i>
@@ -882,22 +1033,70 @@
                 </div>
             </section>
             
+            <!-- قسم الإمساكية -->
+            <section id="قسم-الإمساكية" class="قسم">
+                <h2 class="عنوان-قسم"><i class="fas fa-calendar-alt"></i> جدول الإمساكية</h2>
+                
+                <div class="حاوية-إمساكية">
+                    <h3 style="color: var(--ذهبي); margin-bottom: 1rem;">
+                        <i class="fas fa-clock"></i> الأوقات الشرعية لشهر رمضان المبارك
+                    </h3>
+                    <p style="color: var(--أبيض); margin-bottom: 1rem;">
+                        في مدينة البصرة وضواحيها (٥٤٢٠هـ - ٢٠٢٤م)
+                    </p>
+                    
+                    <!-- صورة الإمساكية -->
+                    <div id="حاوية-صورة-إمساكية">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNjAwIiBmaWxsPSIjMGExZjE0Ii8+CiAgICA8cmVjdCB4PSI1MCIgeT0iNTAiIHdpZHRoPSI3MDAiIGhlaWdodD0iNTAwIiBmaWxsPSIjMWExNzFhIiByeD0iMjAiLz4KICAgIDx0ZXh0IHg9IjQwMCIgeT0iMTIwIiBmb250LWZhbWlseT0iJ1RhamF3YWwnLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSIjZDRhZjM3IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5HRE9MIOKHmSBkIElNU0FLLSBBSVlBVA==</text>CiAgICA8dGV4dCB4PSI0MDAiIHk9IjE3MCIgZm9udC1mYW1pbHk9IidUYWphd2FsJywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOCIgZmlsbD0iI2Y0ZTRhNiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+2YbYqNmEINmI2YUg2KfYq9in2YIg2KfZhNin2KbZhiDYp9mE2KfYqNin2YrZhg==</text>CiAgICA8dGV4dCB4PSI0MDAiIHk9IjIyMCIgZm9udC1mYW1pbHk9IidUYWphd2FsJywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZmlsbD0iI2ZmZmZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+2KrZitiv2YjZhiDZgtmI2KfYpyDYp9mE2YHZg9ixINin2YbYudin2YbYryDYp9mE2YXYp9mGINin2YTYt9mG2KfYpyDYp9mE2YrYp9mK2Kcg2KfZhNmF2KfYp9mK2KfYqg==</text>CiAgICA8Y2lyY2xlIGN4PSI0MDAiIGN5PSIzMjAiIHI9IjYwIiBmaWxsPSIjMmU3ZDMzIi8+CiAgICA8dGV4dCB4PSI0MDAiIHk9IjMyNSIgZm9udC1mYW1pbHk9IidUYWphd2FsJywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNCIgZmlsbD0iI2ZmZmZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+2YjZhiDZgdmD2LE8L3RleHQ+CiAgICA8dGV4dCB4PSI0MDAiIHk9IjM1NSIgZm9udC1mYW1pbHk9IidUYWphd2FsJywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZmlsbD0iI2ZmZmZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+2KfYrNin2YXYqSDYp9mE2KfYq9in2YIg2YbZitixPC90ZXh0PgogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iNDIwIiByPSI0MCIgZmlsbD0iI2Q0YWYzNyIvPgogICAgPHRleHQgeD0iMjAwIiB5PSI0MjAiIGZvbnQtZmFtaWx5PSInVGFqYXdhbCcsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPtmF2KfZhjwvdGV4dD4KICAgIDxjaXJjbGUgY3g9IjQwMCIgY3k9IjQyMCIgcj0iNDAiIGZpbGw9IiNkNGFmMzciLz4KICAgIDx0ZXh0IHg9IjQwMCIgeT0iNDIwIiBmb250LWZhbWlseT0iJ1RhamF3YWwnLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7Yp9mI2KfYs9mKPC90ZXh0PgogICAgPGNpcmNsZSBjeD0iNjAwIiBjeT0iNDIwIiByPSI0MCIgZmlsbD0iI2Q0YWYzNyIvPgogICAgPHRleHQgeD0iNjAwIiB5PSI0MjAiIGZvbnQtZmFtaWx5PSInVGFqYXdhbCcsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPtmF2KfZhjwvdGV4dD4KICAgIDx0ZXh0IHg9IjQwMCIgeT0iNTAwIiBmb250LWZhbWlseT0iJ1RhamF3YWwnLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZjRlNGE2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7Yp9mG2LnYp9mG2K8g2KfZiti12YfYqSDYp9mG2KjYp9mIINin2YXYsdmK2Kkg2YrYp9ix2KfZhiDYp9mE2YXYp9mG2K8g2KfZhNin2KvYp9mCINmG2K7YsTwvdGV4dD4KPC9zdmc+" 
+                             alt="جدول الإمساكية لشهر رمضان في البصرة" 
+                             class="صورة-إمساكية">
+                    </div>
+                    
+                    <p style="color: var(--ذهبي-فاتح); margin-top: 1rem; font-size: 0.9rem;">
+                        <i class="fas fa-info-circle"></i> ينبغي للصائمين الكرام مراعاة الاحتياط بالإمساك في الوقت المحدد له
+                    </p>
+                    
+                    <button class="زر-تحميل" onclick="تحميل_صورة_الإمساكية()">
+                        <i class="fas fa-download"></i> تحميل جدول الإمساكية
+                    </button>
+                </div>
+            </section>
+            
             <!-- قسم القرآن النصي -->
             <section id="قسم-القرآن-النصي" class="قسم">
-                <h2 class="عنوان-قسم"><i class="fas fa-book-open"></i> القرآن الكريم - قراءة</h2>
+                <h2 class="عنوان-قسم"><i class="fas fa-book-open"></i> القرآن الكريم - قراءة كاملة</h2>
                 
-                <div class="حاوية-صلاة">
-                    <div style="text-align: center; padding: 2rem;">
-                        <i class="fas fa-book-open" style="font-size: 8rem; color: var(--ذهبي); margin-bottom: 2rem;"></i>
-                        <div style="font-size: 1.5rem; color: var(--أبيض); margin: 1rem 0;">
-                            قسم قراءة القرآن الكريم
-                        </div>
-                        <p style="color: var(--ذهبي-فاتح); margin: 2rem 0;">
-                            هذا القسم مخصص لقراءة القرآن الكريم كاملاً
-                        </p>
-                        <button class="زر-تحديد" onclick="فتح_القارئ()">
-                            <i class="fas fa-book-reader"></i> فتح قارئ القرآن
+                <div class="قارئ-قرآن">
+                    <div class="تحكم-قارئ">
+                        <select id="اختيار-سورة" onchange="تغيير_سورة_القراءة(this.value)" style="background: rgba(255,255,255,0.1); color: white; border: 2px solid var(--ذهبي); padding: 0.75rem; border-radius: 10px; font-family: 'Tajawal'; font-size: 1rem; min-width: 200px;">
+                            <option value="الفاتحة">سورة الفاتحة</option>
+                            <option value="البقرة">سورة البقرة</option>
+                            <option value="آل عمران">سورة آل عمران</option>
+                            <option value="النساء">سورة النساء</option>
+                            <option value="المائدة">سورة المائدة</option>
+                        </select>
+                        
+                        <select id="اختيار-صفحة" onchange="تغيير_صفحة_القراءة(this.value)" style="background: rgba(255,255,255,0.1); color: white; border: 2px solid var(--أخضر); padding: 0.75rem; border-radius: 10px; font-family: 'Tajawal'; font-size: 1rem;">
+                            <option value="1">الصفحة 1</option>
+                            <option value="2">الصفحة 2</option>
+                            <option value="3">الصفحة 3</option>
+                            <option value="4">الصفحة 4</option>
+                            <option value="5">الصفحة 5</option>
+                        </select>
+                        
+                        <button class="زر-خيار" onclick="تبديل_الوضع_الليلي()" style="min-width: 120px;">
+                            <i class="fas fa-moon"></i> الوضع الليلي
                         </button>
+                    </div>
+                    
+                    <div class="محتوى-قرآن" id="محتوى-القرآن">
+                        <!-- محتوى القرآن سيتغير هنا -->
+                        <div style="text-align: center; padding: 3rem;">
+                            <i class="fas fa-book-open" style="font-size: 4rem; color: var(--ذهبي); margin-bottom: 1rem;"></i>
+                            <p style="color: var(--أبيض); font-size: 1.2rem;">
+                                اختر سورة من القائمة لبدء القراءة
+                            </p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -997,8 +1196,9 @@
         let عداد_التسبيح = 0;
         let الموقع_الحالي = 'بغداد';
         let السور_الحالية = [];
+        let وضع_ليلي = false;
         
-        // ============= قاعدة بيانات السور من المصدر السابق =============
+        // ============= قاعدة بيانات السور =============
         const قاعدة_القراء = {
             عبدالباسط: [
                 { اسم: "الفاتحة", رابط: "https://download.quranicaudio.com/quran/abdul_basit_murattal/001.mp3" },
@@ -1012,25 +1212,7 @@
                 { اسم: "التوبة", رابط: "https://download.quranicaudio.com/quran/abdul_basit_murattal/009.mp3" },
                 { اسم: "يونس", رابط: "https://download.quranicaudio.com/quran/abdul_basit_murattal/010.mp3" },
                 { اسم: "هود", رابط: "https://download.quranicaudio.com/quran/abdul_basit_murattal/011.mp3" },
-                { اسم: "يوسف", رابط: "https://download.quranicaudio.com/quran/abdul_basit_murattal/012.mp3" },
-                { اسم: "الرعد", رابط: "https://download.quranicaudio.com/quran/abdul_basit_murattal/013.mp3" },
-                { اسم: "ابراهيم", رابط: "https://download.quranicaudio.com/quran/abdul_basit_murattal/014.mp3" },
-                { اسم: "الحجر", رابط: "https://download.quranicaudio.com/quran/abdul_basit_murattal/015.mp3" },
-                { اسم: "النحل", رابط: "https://download.quranicaudio.com/quran/abdul_basit_murattal/016.mp3" },
-                { اسم: "الإسراء", رابط: "https://download.quranicaudio.com/quran/abdul_basit_murattal/017.mp3" },
-                { اسم: "الكهف", رابط: "https://download.quranicaudio.com/quran/abdul_basit_murattal/018.mp3" },
-                { اسم: "مريم", رابط: "https://download.quranicaudio.com/quran/abdul_basit_murattal/019.mp3" },
-                { اسم: "طه", رابط: "https://download.quranicaudio.com/quran/abdul_basit_murattal/020.mp3" },
-                { اسم: "الأنبياء", رابط: "https://download.quranicaudio.com/quran/abdul_basit_murattal/021.mp3" },
-                { اسم: "الحج", رابط: "https://download.quranicaudio.com/quran/abdul_basit_murattal/022.mp3" },
-                { اسم: "المؤمنون", رابط: "https://download.quranicaudio.com/quran/abdul_basit_murattal/023.mp3" },
-                { اسم: "النور", رابط: "https://download.quranicaudio.com/quran/abdul_basit_murattal/024.mp3" },
-                { اسم: "الفرقان", رابط: "https://download.quranicaudio.com/quran/abdul_basit_murattal/025.mp3" },
-                { اسم: "الشعراء", رابط: "https://download.quranicaudio.com/quran/abdul_basit_murattal/026.mp3" },
-                { اسم: "النمل", رابط: "https://download.quranicaudio.com/quran/abdul_basit_murattal/027.mp3" },
-                { اسم: "القصص", رابط: "https://download.quranicaudio.com/quran/abdul_basit_murattal/028.mp3" },
-                { اسم: "العنكبوت", رابط: "https://download.quranicaudio.com/quran/abdul_basit_murattal/029.mp3" },
-                { اسم: "الروم", رابط: "https://download.quranicaudio.com/quran/abdul_basit_murattal/030.mp3" }
+                { اسم: "يوسف", رابط: "https://download.quranicaudio.com/quran/abdul_basit_murattal/012.mp3" }
             ],
             المنشاوي: [
                 { اسم: "الفاتحة", رابط: "https://download.quranicaudio.com/quran/muhammad_siddeeq_al-minshaawee/001.mp3" },
@@ -1119,6 +1301,38 @@
             السليمانية: { فجر: "04:38", ظهر: "12:08", عصر: "15:38", مغرب: "18:23", عشاء: "19:53" }
         };
         
+        // ============= نصوص القرآن للقراءة =============
+        const نصوص_القرآن = {
+            الفاتحة: `
+                بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
+                ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ
+                ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
+                مَٰلِكِ يَوْمِ ٱلدِّينِ
+                إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ
+                ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ
+                صِرَٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ ٱلْمَغْضُوبِ عَلَيْهِمْ وَلَا ٱلضَّآلِّينَ
+            `,
+            البقرة: `
+                الم
+                ذَٰلِكَ ٱلْكِتَابُ لَا رَيْبَۛ فِيهِۛ هُدًى لِّلْمُتَّقِينَ
+                ٱلَّذِينَ يُؤْمِنُونَ بِٱلْغَيْبِ وَيُقِيمُونَ ٱلصَّلَوٰةَ وَمِمَّا رَزَقْنَٰهُمْ يُنفِقُونَ
+                وَٱلَّذِينَ يُؤْمِنُونَ بِمَآ أُنزِلَ إِلَيْكَ وَمَآ أُنزِلَ مِن قَبْلِكَ وَبِٱلْآخِرَةِ هُمْ يُوقِنُونَ
+                أُو۟لَٰٓئِكَ عَلَىٰ هُدًى مِّن رَّبِّهِمْۖ وَأُو۟لَٰٓئِكَ هُمُ ٱلْمُفْلِحُونَ
+            `,
+            "آل عمران": `
+                الم
+                ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُ
+                نَزَّلَ عَلَيْكَ ٱلْكِتَٰبَ بِٱلْحَقِّ مُصَدِّقًا لِّمَا بَيْنَ يَدَيْهِ وَأَنزَلَ ٱلتَّوْرَىٰةَ وَٱلْإِنجِيلَ
+                مِن قَبْلُ هُدًى لِّلنَّاسِ وَأَنزَلَ ٱلْفُرْقَانَۗ إِنَّ ٱلَّذِينَ كَفَرُوا۟ بِـَٔايَٰتِ ٱللَّهِ لَهُمْ عَذَابٌ شَدِيدٌۗ وَٱللَّهُ عَزِيزٌ ذُو ٱنتِقَامٍ
+            `,
+            النساء: `
+                يَٰٓأَيُّهَا ٱلنَّاسُ ٱتَّقُوا۟ رَبَّكُمُ ٱلَّذِى خَلَقَكُم مِّن نَّفْسٍ وَٰحِدَةٍ وَخَلَقَ مِنْهَا زَوْجَهَا وَبَثَّ مِنْهُمَا رِجَالًا كَثِيرًا وَنِسَآءًۚ وَٱتَّقُوا۟ ٱللَّهَ ٱلَّذِى تَسَآءَلُونَ بِهِۦ وَٱلْأَرْحَامَۚ إِنَّ ٱللَّهَ كَانَ عَلَيْكُمْ رَقِيبًا
+            `,
+            المائدة: `
+                يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوٓا۟ أَوْفُوا۟ بِٱلْعُقُودِۚ أُحِلَّتْ لَكُم بَهِيمَةُ ٱلْأَنْعَٰمِ إِلَّا مَا يُتْلَىٰ عَلَيْكُمْ غَيْرَ مُحِلِّى ٱلصَّيْدِ وَأَنتُمْ حُرُمٌۗ إِنَّ ٱللَّهَ يَحْكُمُ مَا يُرِيدُ
+            `
+        };
+        
         // ============= تهيئة الصفحة =============
         document.addEventListener('DOMContentLoaded', function() {
             تحميل_السور();
@@ -1141,10 +1355,24 @@
                 }
             });
             
+            // إظهار شاشة الحماية
+            إظهار_الحماية();
+            
             setTimeout(() => {
                 إظهار_إشعار('مرحباً بك في القرآن الشامل - تطبيق إسلامي مجاني شامل');
             }, 1000);
         });
+        
+        // ============= حماية التطبيق =============
+        function إظهار_الحماية() {
+            document.getElementById('حماية-تطبيق').classList.add('نشط');
+        }
+        
+        function إغلاق_الحماية() {
+            document.getElementById('حماية-تطبيق').classList.remove('نشط');
+            localStorage.setItem('حماية_مقبولة', 'نعم');
+            إظهار_إشعار('شكراً لك، تم تفعيل التطبيق');
+        }
         
         // ============= وظائف التنقل =============
         function تغيير_القسم(القسم) {
@@ -1167,6 +1395,11 @@
             
             // إغلاق مشغل الصوت
             إغلاق_المشغل();
+            
+            // تحميل الإمساكية إذا كان القسم
+            if (القسم === 'الإمساكية') {
+                تحميل_صورة_الإمساكية();
+            }
         }
         
         // ============= تحديث الوقت =============
@@ -1308,12 +1541,10 @@
         }
         
         function التشغيل_السابق() {
-            // هنا يمكن إضافة منطق للتشغيل السابق
             إظهار_إشعار('ميزة التشغيل السابق قيد التطوير');
         }
         
         function التشغيل_التالي() {
-            // هنا يمكن إضافة منطق للتشغيل التالي
             إظهار_إشعار('ميزة التشغيل التالي قيد التطوير');
         }
         
@@ -1475,11 +1706,66 @@
         function تشغيل_دعاء(نوع) {
             إظهار_إشعار(`جاري تشغيل دعاء ال${نوع}`);
             
-            // هنا يمكن إضافة تشغيل صوتي حقيقي
             // محاكاة للتجربة
             setTimeout(() => {
                 إظهار_إشعار('جاري تشغيل الدعاء...');
             }, 500);
+        }
+        
+        // ============= نظام الإمساكية =============
+        function تحميل_صورة_الإمساكية() {
+            إظهار_إشعار('جدول الإمساكية معروض على الشاشة');
+            
+            // يمكن استبدال صورة SVG بصور حقيقية
+            // const حاوية_الصورة = document.getElementById('حاوية-صورة-إمساكية');
+            // حاوية_الصورة.innerHTML = '<img src="مسار_الصورة_الحقيقي.jpg" class="صورة-إمساكية" alt="جدول الإمساكية">';
+        }
+        
+        // ============= نظام القرآن النصي =============
+        function تغيير_سورة_القراءة(سورة) {
+            const محتوى_القرآن = document.getElementById('محتوى-القرآن');
+            
+            if (نصوص_القرآن[سورة]) {
+                محتوى_القرآن.innerHTML = `
+                    <div style="text-align: center; margin-bottom: 2rem; color: var(--ذهبي);">
+                        <h3 style="font-size: 2rem; margin-bottom: 1rem;">سورة ${سورة}</h3>
+                        <p style="color: var(--أبيض); font-size: 0.9rem;">بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ</p>
+                    </div>
+                    <div style="font-size: 1.6rem; line-height: 3; text-align: justify; padding: 1rem;">
+                        ${نصوص_القرآن[سورة]}
+                    </div>
+                `;
+                
+                إظهار_إشعار(`جاري عرض سورة ${سورة}`);
+            } else {
+                محتوى_القرآن.innerHTML = `
+                    <div style="text-align: center; padding: 3rem;">
+                        <i class="fas fa-exclamation-triangle" style="font-size: 4rem; color: var(--ذهبي); margin-bottom: 1rem;"></i>
+                        <p style="color: var(--أبيض); font-size: 1.2rem;">
+                            السورة غير متوفرة حالياً في النسخة التجريبية
+                        </p>
+                    </div>
+                `;
+            }
+        }
+        
+        function تغيير_صفحة_القراءة(صفحة) {
+            إظهار_إشعار(`الصفحة ${صفحة} - هذه ميزة تجريبية`);
+        }
+        
+        function تبديل_الوضع_الليلي() {
+            وضع_ليلي = !وضع_ليلي;
+            const محتوى_القرآن = document.getElementById('محتوى-القرآن');
+            
+            if (وضع_ليلي) {
+                محتوى_القرآن.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+                محتوى_القرآن.style.color = 'var(--ذهبي-فاتح)';
+                إظهار_إشعار('تم تفعيل الوضع الليلي');
+            } else {
+                محتوى_القرآن.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
+                محتوى_القرآن.style.color = 'var(--ذهبي-فاتح)';
+                إظهار_إشعار('تم إلغاء الوضع الليلي');
+            }
         }
         
         // ============= وظائف مساعدة =============
@@ -1495,10 +1781,6 @@
         
         function الانتقال_للأعلى() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-        
-        function فتح_القارئ() {
-            إظهار_إشعار('قارئ القرآن قيد التطوير');
         }
     </script>
 </body>
